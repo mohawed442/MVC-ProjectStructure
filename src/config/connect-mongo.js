@@ -7,7 +7,6 @@ dotenv.config({ path: path.resolve('.env') });
 console.log({ path: path.resolve('.env') });
 
 
-console.log(process.env.MONGO_URI);
 const dbConnect = ()=>{
     mongoose.connect(process.env.MONGO_URI)
     .then(()=>console.log("connect db"))
