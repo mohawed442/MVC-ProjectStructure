@@ -1,221 +1,178 @@
-# 🌿 MVC Helper — README
+<h1 align="center">
+  🚀 Auth Framework Helper 🛠️  
+</h1>
 
-> مشروع خفيف يشبه إطار عمل (helper/framework) لبنية **MVC** مع صفحة تسجيل دخول و تسجيل حساب فقط — تصميم عصري، ألوان مريحة، وأنيميشن بسيط للواجهة.
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="200" alt="Framework Animation" />
+</p>
 
----
-
-## ✨ نظرة عامة
-
-هذا المشروع مُصمم كمساعد (micro-framework style) يسرّع بناء تطبيقات صغيرة بالمعمارية `MVC`. الهدف: **بنية منظمة**، صفحتين فقط (`login`, `signup`) داخل مجلد `main`، وتوصيل بسيط بقاعدة بيانات باستخدام موديل مستخدم يحتوي على `name`, `email`, `password`.
-
-الـ login يرجع **JSON Web Token (JWT)** في الاستجابة بعد نجاح المصادقة.
-
----
-
-## 🧭 المميزات
-
-* بنية MVC واضحة (Controllers / Models / Views / Routes)
-* صفحتان جاهزتان: `signup` و `login` داخل `main/`
-* موديل مستخدم بسيط: `name`, `email`, `password`
-* تسجيل (signup) مع حقول: الاسم — البريد — كلمة المرور (+ حقول إضافية اختيارية)
-* تسجيل دخول (login) يرجع توكن في الـ response
-* تأثيرات أنيميشن خفيفة في الواجهة لتجربة مستخدم جذابة
-* ألوان مريحة للعين وواجهة نظيفة
+<p align="center">
+  مشروع مساعد يشبه <strong>Framework</strong> جاهز لبناء نظام تسجيل دخول وتسجيل حساب بسيط باستخدام <strong>Node.js + Express + MongoDB</strong> 🚀  
+</p>
 
 ---
 
-## 🌈 ألوان مقترحة (Palette)
+## 🧱 هيكلة المشروع (Project Structure)
 
-* خلفية عامة: `#F6F8FA` (very light)
-* بطاقات / كارتس: `#FFFFFF`
-* تباين أساسي: `#0F172A` (dark navy)
-* ألوان accents: `#4F46E5` (indigo), `#06B6D4` (teal)
-* لون ثانوي مريح: `#64748B` (slate)
+📦 back-End
+┣ 📂 src
+┃ ┣ 📂 config
+┃ ┃ ┗ 📜 connect-mongo.js ← الاتصال بقاعدة البيانات MongoDB
+┃ ┣ 📂 controllers
+┃ ┃ ┗ 📜 auth.controller.js ← يحتوي على دوال login و signup
+┃ ┣ 📂 models
+┃ ┃ ┗ 📜 user.model.js ← موديل المستخدم (name, email, password, ...)
+┃ ┣ 📂 routes
+┃ ┃ ┗ 📜 auth.routes.js ← الراوتر الأساسي للمصادقة
+┃ ┗ 📜 app.js ← نقطة تشغيل السيرفر
+┣ 📜 .env ← متغيرات البيئة (MONGO_URI, JWT_SECRET...)
+┗ 📜 README.md ← الملف التوضيحي (أنت هنا 😎)
 
-> هذه الألوان مريحة وطبيعية للشاشات وتعمل جيدًا مع أنيميشن بسيط.
-
----
-
-## 🗂️ هيكلة المشروع (Structure)
-
-```
-MVC-ProjectStructure/
-├─ src/
-│  ├─ main/                # صفحات الواجهة (login, signup)
-│  │  ├─ login/            # صفحة login
-│  │  │  ├─ index.html
-│  │  │  └─ styles.css
-│  │  └─ signup/           # صفحة signup
-│  │     ├─ index.html
-│  │     └─ styles.css
-│  ├─ controllers/
-│  │  └─ auth.controller.js
-│  ├─ models/
-│  │  └─ user.model.js
-│  ├─ routes/
-│  │  └─ auth.routes.js
-│  ├─ config/
-│  │  └─ db.js
-│  └─ app.js
-├─ .env
-├─ package.json
-└─ README.md
-```
+yaml
+Copy code
 
 ---
 
-## 🧩 نموذج الـ User (Mongoose example)
-
+## 🧬 الموديل (User Model)
 ```js
-// src/models/user.model.js
-import mongoose from 'mongoose';
+import mongoose, { Schema , model } from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-}, { timestamps: true });
+const userSchema = new Schema({
+  name: { type: String, required: true, minlength: 3, maxlength: 25, trim: true },
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  password: { type: String, required: true, minlength: 6 },
+  gender: { type: String, enum: ['male', 'female'], default: "male" },
+  address: String,
+  image: String,
+  confirmEmail: { type: Boolean, default: false },
+  role: { type: String, enum: ['user', 'admin'], default: "user" }
+},{timestamps : true});
 
-export default mongoose.model('User', userSchema);
-```
+const userModel = mongoose.models.User || model("User", userSchema);
+export default userModel;
+⚙️ الاتصال بقاعدة البيانات (MongoDB)
+js
+Copy code
+import mongoose from 'mongoose'
+import * as dotenv from 'dotenv'
+import path from 'path'
 
----
+dotenv.config({ path: path.resolve('.env') });
 
-## 🔌 Routes / API
-
-### POST `/api/auth/signup`
-
-* body: `{ name, email, password, ...optional }`
-* يعمل: ينشئ مستخدم جديد (بعد هاش لكلمة المرور)
-* استجابة مثال:
-
-```json
-{
-  "success": true,
-  "message": "User created",
-  "user": { "id": "...", "name": "Ali", "email": "a@b.com" }
+const dbConnect = ()=>{
+    mongoose.connect(process.env.MONGO_URI)
+    .then(()=>console.log("✅ Connected to MongoDB"))
+    .catch((err)=>console.log("❌ Database connection error:", err))
 }
-```
 
-### POST `/api/auth/login`
+export default dbConnect
+🚀 نقطة التشغيل (Server Entry)
+js
+Copy code
+import dbConnect from './config/connect-mongo.js';
+import router from './routes/auth.routes.js';
+import express from 'express';
 
-* body: `{ email, password }`
-* يعمل: يتحقق من البيانات، ويرسل **JWT** في الاستجابة
-* استجابة مثال:
+const app = express();
+const port = 3000;
 
-```json
-{
-  "success": true,
-  "token": "eyJhbGciOi...",
-  "user": { "id": "...", "name": "Ali", "email": "a@b.com" }
-}
-```
+app.use(express.json());
+dbConnect();
+app.use("/", router);
 
----
+app.listen(port, () => console.log(`🚀 Server running at http://localhost:${port}`));
+🧭 الراوتر (Routes)
+js
+Copy code
+import express from "express";
+import { signup, login } from "../controllers/auth.controller.js";
 
-## 🧾 مثال بسيط للـ Controller
+const router = express.Router();
 
-```js
-// src/controllers/auth.controller.js
-import User from '../models/user.model.js';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+router.post("/login", login);
+router.post("/signup", signup);
 
+export default router;
+🧩 الكنترولر (Controller)
+✳️ Signup
+js
+Copy code
 export const signup = async (req, res) => {
-  const { name, email, password } = req.body;
-  const hash = await bcrypt.hash(password, 10);
-  const user = await User.create({ name, email, password: hash });
-  res.json({ success: true, user: { id: user._id, name: user.name, email: user.email } });
+  try {
+    const { name, email, password } = req.body;
+    const checkUser = await userModel.findOne({ email });
+    if (checkUser) return res.status(409).json({ message: "البريد الإلكتروني مسجل بالفعل" });
+
+    const hashPassword = await bcrypt.hash(password, parseInt(process.env.SOLT));
+    const user = await userModel.create({ name, email, password: hashPassword });
+
+    return res.status(201).json({ message: "تم إنشاء الحساب بنجاح.", user });
+  } catch (error) {
+    console.error("Signup error:", error);
+    return res.status(500).json({ message: "خطأ في السيرفر." });
+  }
 };
+🔑 Login
+js
+Copy code
+export const login = async (req , res)=>{
+  try {
+    const { email , password } = req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) return res.status(404).json({ message:"بيانات تسجيل الدخول غير صحيحة" });
 
-export const login = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (!user) return res.status(401).json({ success: false, message: 'Invalid credentials' });
-  const match = await bcrypt.compare(password, user.password);
-  if (!match) return res.status(401).json({ success: false, message: 'Invalid credentials' });
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-  res.json({ success: true, token, user: { id: user._id, name: user.name, email: user.email } });
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(404).json({ message:"بيانات تسجيل الدخول غير صحيحة" });
+
+    if (!user.confirmEmail) {
+      return res.status(403).json({ message: "يرجى تأكيد البريد الإلكتروني أولاً" });
+    }
+
+    let token;
+    switch (user.role) {
+      case "user":
+        token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        break;
+      case "admin":
+        token = jwt.sign({ id: user._id }, process.env.JWT_SECRETADMIN, { expiresIn: "1h" });
+        break;
+      default:
+        return res.status(401).json({ message: "دور المستخدم غير صالح" });
+    }
+
+    return res.status(200).json({ message: "تم تسجيل الدخول بنجاح", token });
+  } catch (error) {
+    console.error("Login error:", error);
+    return res.status(500).json({ message: "حدث خطأ داخلي في الخادم." });
+  }
 };
-```
+🎨 واجهة المشروع (Animation Preview)
+<p align="center"> <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3A5eHZraW9vZDFubnYwbXZ6ZGczOGJ6OTRybmRycjVkOHg1am11NCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JtBZm8yGdF3Xy/giphy.gif" width="450" alt="Animation Example" /> </p>
+🪄 مميزات المشروع
+✅ نظام تسجيل دخول وتسجيل حساب كامل
+✅ استخدام JWT لتأمين الجلسات
+✅ التحقق من البريد الإلكتروني
+✅ بنية نظيفة على أسلوب MVC
+✅ سهل التوسيع لأي مشروع أكبر
+✅ ألوان مريحة للعين وتصميم جذاب 💙
 
----
-
-## 🎨 واجهة المستخدم — تصميم جذاب مع أنيميشن
-
-* الواجهة مبسطة: كارت مركزي يحتوي على فورم، حواف مستديرة، ظل خفيف.
-* أنيميشن: دخول تدريجي (fade-in + slide-up) للبطاقة، وتأثير على الأزرار عند المرور (hover) مع ترجمة خفيفة.
-
-### مثال CSS للـ Card & Animation (ضعه في `main/*/styles.css`)
-
-```css
-/* palette-based variables */
-:root{
-  --bg: #F6F8FA;
-  --card: #FFFFFF;
-  --accent: #4F46E5;
-  --muted: #64748B;
-}
-
-body{background:var(--bg);font-family:Inter, system-ui, Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-
-.auth-card{background:var(--card);width:360px;padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,0.08);opacity:0;transform:translateY(18px);animation:cardIn .6s cubic-bezier(.2,.9,.2,1) forwards}
-
-@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
-
-.button{display:inline-block;padding:10px 16px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
-.button:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(79,70,229,0.18)}
-
-.input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #E6E9EE;margin-bottom:12px}
-```
-
-> يُمكنك إضافة GIF متحرك في أعلى README كـ banner لتسليط الضوء على الأنيميشن.
-
----
-
-## 🚀 التشغيل محليًا
-
-1. انسخ الريبو
-
-```bash
-git clone <repo-url>
-cd MVC-ProjectStructure
-```
-
-2. ثبت الحزم
-
-```bash
+⚡ أوامر التشغيل
+bash
+Copy code
+# تثبيت الحزم
 npm install
-```
 
-3. جهّز ملف `.env`:
+# إنشاء ملف .env
+MONGO_URI=mongodb+srv://<your-cluster>
+JWT_SECRET=yourSecret
+JWT_SECRETADMIN=adminSecret
+SOLT=8
 
-```
-MONGO_URI=your_mongo_uri
-JWT_SECRET=some_secret
-PORT=3000
-```
-
-4. شغّل الخادم
-
-```bash
+# تشغيل المشروع
 npm run dev
-```
+💬 تواصل معي
+📧 Email: yourmail@example.com
+🐙 GitHub: YourGitHubProfile
+🌐 Website: yourwebsite.com
 
----
-
-## ✅ نصائح
-
-* لا تنسَ عمل هاش لكلمات المرور دائماً.
-* أفصل الصوتيات والوظائف الثقيلة خارج الكونترولر إن احتجت.
-* لو تريد دعم حقلَي ملف (avatar) أو تاريخ الميلاد — أضفهم للموديل وواجهة الـ signup.
-
----
-
-## ✍️ خاتمة
-
-هذا `README.md` مهيأ ليقدّم المشروع كمكوّن مساعد/إطار عمل صغير. لو تحب أعدّل الألوان أو أدرج صورة متحركة (GIF) جاهزة — أقدر أعدّل الملف فورًا.
-
----
-
-*صُنع بمحبة — لو عايز نسخه إنجليزي أو إصدار جاهز للنشر على GitHub أعطني إشارة.*
+<h3 align="center"> ✨ تم تصميم هذا المشروع بحب ❤️ باستخدام Node.js و Express ✨ </h3> ```
