@@ -1,7 +1,12 @@
+import dbConnect from './config/connect-mongo.js';
+import router from './routes/auth.routes.js';
 import express from'express'
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(express.json());
+dbConnect();
 
-app.listen(port, () => console.log(`http://localhost:${port}!`))
+app.use("/", router);
+
+app.listen(port, () => console.log(`http://localhost:${port}`))
