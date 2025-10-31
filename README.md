@@ -1,342 +1,287 @@
+# 🚀 Auth Framework Helper 🛠️
+
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="220" alt="Framework Animation" />
+</p>
+
 <div align="center">
 
-# 🔐 E-Commerce Auth Framework
-
-### *نظام توثيق احترافي بتصميم عصري ومرن*
-
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="250" alt="Framework Animation" />
-
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+> ⚡️ مشروع مصغّر يشبه فريم‌ورك للتوثيق (Auth) — صفحتان فقط: Signup و Login — مبني بـ Node.js + Express + MongoDB + JWT — هيكلية MVC بسيطة ومنظمة.  
+> الألوان مريحة، صور توضيحية، وانميشن للواجهة.
 
 </div>
 
 ---
 
-## 📖 نظرة عامة
-
-**E-Commerce Auth Framework** هو إطار عمل مصغر للتوثيق والتسجيل، مصمم خصيصاً ليكون نقطة انطلاق مثالية لمشاريع التجارة الإلكترونية. يجمع بين البساطة والقوة، مع هيكلة **MVC** نظيفة وقابلة للتوسع.
-
-### ✨ لماذا هذا المشروع مميز؟
-
-- 🎯 **بسيط وفعال**: صفحتان فقط (Login & Signup) لكن بكود احترافي
-- 🏗️ **هيكلة MVC نظيفة**: كل شيء في مكانه الصحيح
-- 🔒 **أمان عالي**: تشفير bcrypt و JWT tokens
-- 🚀 **جاهز للإنتاج**: يمكنك البناء عليه مباشرة
-- 📦 **خفيف الوزن**: لا تعقيدات، فقط الأساسيات القوية
+## 🎯 ملخص سريع
+- صفحات المشروع: Signup (name, email, password) و Login (email, password).  
+- بعد تسجيل الدخول الناجح يتم إرجاع JWT Token في الـ response.  
+- متصل بقاعدة بيانات MongoDB ومستخدم Mongoose للنماذج.  
+- كل الأكواد المهمة موضوعة هنا في ملف README واحد لسهولة النسخ واللصق.  
+- تم إضافة صور ومقاطع GIF لواجهة العرض والتصميم.  
+- ملاحظة فريق التطوير: اعمل فرع لكل ميزة (مثلاً feature/signup-controller و feature/login-controller) ثم قم بعمل Merge إلى main بعد الانتهاء.
 
 ---
 
-## 🎬 معاينة حية
+## 🎨 معاينة مرئية (Preview)
 
-<div align="center">
+| Login (Animated) | Signup (Animated) |
+|:----------------:|:------------------:|
+| ![Login Animation](https://github.com/mohamed-dev/assets/raw/main/login.gif) | ![Signup Animation](https://github.com/mohamed-dev/assets/raw/main/signup.gif) |
 
-| 🔑 تسجيل الدخول | 📝 إنشاء حساب |
-|:---:|:---:|
-| <img src="https://github.com/mohamed-dev/assets/raw/main/login.gif" width="350"/> | <img src="https://github.com/mohamed-dev/assets/raw/main/signup.gif" width="350"/> |
-
-</div>
-
----
-
-## 🏗️ هيكلية المشروع
-
-```
-📦 E-commerce-auth
-┣ 📂 src
-┃ ┣ 📂 config
-┃ ┃ ┗ 📜 connect-mongo.js      # إعدادات الاتصال بقاعدة البيانات
-┃ ┣ 📂 controllers
-┃ ┃ ┗ 📜 auth.controller.js    # منطق الأعمال للتوثيق
-┃ ┣ 📂 models
-┃ ┃ ┗ 📜 user.model.js          # نموذج بيانات المستخدم
-┃ ┣ 📂 routes
-┃ ┃ ┗ 📜 auth.routes.js         # نقاط النهاية API
-┃ ┗ 📜 app.js                   # ملف التطبيق الرئيسي
-┣ 📜 .env                        # متغيرات البيئة
-┣ 📜 package.json
-┗ 📜 README.md
-```
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/45159366/235320093-df8d2b25-caa6-43e1-8c26-0cae46a1ce8e.png" width="420" alt="auth-structure" style="border-radius:10px;box-shadow:0 6px 18px rgba(79,163,255,0.18);" />
+  <img src="https://user-images.githubusercontent.com/45159366/235320114-9f7c7b7d-f0a3-43f9-bc4f-282c5ddfc7ae.png" width="420" alt="auth-flow" style="border-radius:10px;box-shadow:0 6px 18px rgba(80,216,144,0.14);" />
+</p>
 
 ---
 
-## 🚀 البدء السريع
+## 📁 كل شيء هنا — ملفات وشرح سريع
+فيما يلي الأكواد المطلوبة لكل جزء من المشروع موضوعة داخل هذا الملف لنسخها مباشرة إلى ملفات المشروع.
 
-### المتطلبات الأساسية
+- src/models/user.model.js
+- src/config/connect-mongo.js
+- src/controllers/auth.controller.js
+- src/routes/auth.routes.js
+- src/app.js
 
-- Node.js (الإصدار 14 أو أحدث)
-- MongoDB (محلي أو سحابي)
-- npm أو yarn
-
-### خطوات التثبيت
-
-```bash
-# 1. استنساخ المشروع
-git clone https://github.com/your-username/e-commerce-auth.git
-cd e-commerce-auth
-
-# 2. تثبيت الحزم
-npm install
-
-# 3. إعداد ملف البيئة
-cp .env.example .env
-# قم بتعديل .env بمعلومات قاعدة البيانات الخاصة بك
-
-# 4. تشغيل السيرفر
-npm run dev
-```
-
-🎉 **تهانينا!** السيرفر يعمل الآن على `http://localhost:3000`
-
----
-
-## ⚙️ إعدادات البيئة
-
-قم بإنشاء ملف `.env` في المجلد الرئيسي:
-
+تأكد من إنشاء ملف `.env` في جذر المشروع مع القيم التالية:
 ```env
-# MongoDB Connection
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ecommerce
-
-# JWT Secret Key
-JWT_SECRET=your_super_secret_key_here_2024
-
-# Server Port
-PORT=3000
-```
-
-> 💡 **نصيحة**: استخدم مفتاح JWT قوي ومعقد في بيئة الإنتاج!
-
----
-
-## 📡 نقاط النهاية API
-
-### 1️⃣ إنشاء حساب جديد
-
-```http
-POST /signup
-Content-Type: application/json
-
-{
-  "name": "محمد أحمد",
-  "email": "mohamed@example.com",
-  "password": "SecurePass123"
-}
-```
-
-**الاستجابة الناجحة (201):**
-```json
-{
-  "message": "تم إنشاء الحساب بنجاح",
-  "user": {
-    "_id": "507f1f77bcf86cd799439011",
-    "name": "محمد أحمد",
-    "email": "mohamed@example.com"
-  }
-}
-```
-
-### 2️⃣ تسجيل الدخول
-
-```http
-POST /login
-Content-Type: application/json
-
-{
-  "email": "mohamed@example.com",
-  "password": "SecurePass123"
-}
-```
-
-**الاستجابة الناجحة (200):**
-```json
-{
-  "message": "تم تسجيل الدخول بنجاح",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/test
+JWT_SECRET=USER_SECRET
+JWT_SECRETADMIN=ADMIN_SECRET
+SALT=10
 ```
 
 ---
 
-## 🔐 نموذج البيانات
+## src/models/user.model.js
 
-### User Schema
+```js
+import mongoose, { Schema, model } from "mongoose";
 
-```javascript
-{
+const userSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'Name is required'],
     minlength: 3,
     maxlength: 25,
     trim: true
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'Email is required'],
     unique: true,
     lowercase: true,
     trim: true
   },
   password: {
     type: String,
-    required: true,
+    required: [true, 'Password is required'],
     minlength: 6
   },
-  createdAt: Date,
-  updatedAt: Date
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
+    default: "male"
+  },
+  address: {
+    type: String,
+  },
+  image: String,
+  confirmEmail: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: "user"
+  }
+}, { timestamps: true });
+
+const userModel = mongoose.models.User || model("User", userSchema);
+export default userModel;
+```
+
+---
+
+## src/config/connect-mongo.js
+
+```js
+import mongoose from 'mongoose';
+import * as dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve('.env') });
+
+console.log({ envPath: path.resolve('.env') });
+
+const dbConnect = () => {
+  mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("✅ Database Connected"))
+    .catch((err) => console.log("❌ Database Error:", err));
+};
+
+export default dbConnect;
+```
+
+---
+
+## src/controllers/auth.controller.js
+
+```js
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import userModel from "../models/user.model.js";
+
+/*
+  Signup controller
+*/
+export const signup = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    const checkUser = await userModel.findOne({ email });
+    if (checkUser) {
+      return res.status(409).json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
+    }
+
+    const hashPassword = await bcrypt.hash(password, parseInt(process.env.SALT || "10"));
+
+    const user = await userModel.create({
+      name,
+      email,
+      password: hashPassword,
+    });
+
+    return res.status(201).json({
+      message: "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
+      user,
+    });
+  } catch (error) {
+    console.error("Signup error:", error);
+    return res.status(500).json({ message: "حدث خطأ داخلي في الخادم. حاول لاحقًا." });
+  }
+};
+
+/*
+  Login controller
+*/
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "in-valid login Data" });
+    }
+
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
+      return res.status(404).json({ message: "in-valid login Data" });
+    }
+
+    if (!user.confirmEmail) {
+      return res.status(403).json({ message: "Please confirm your email before proceeding" });
+    }
+
+    let token;
+    switch (user.role) {
+      case "user":
+        token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        break;
+      case "admin":
+        token = jwt.sign({ id: user._id }, process.env.JWT_SECRETADMIN, { expiresIn: "1h" });
+        break;
+      default:
+        return res.status(401).json({ message: "login role invalid" });
+    }
+
+    return res.status(200).json({ message: "done", token });
+  } catch (error) {
+    console.error("Login error:", error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+```
+
+---
+
+## src/routes/auth.routes.js
+
+```js
+import express from "express";
+import { signup, login } from "../controllers/auth.controller.js";
+
+const router = express.Router();
+
+router.post("/signup", signup);
+router.post("/login", login);
+
+export default router;
+```
+
+---
+
+## src/app.js
+
+```js
+import express from 'express';
+import dbConnect from './config/connect-mongo.js';
+import router from './routes/auth.routes.js';
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+dbConnect();
+
+app.use("/", router);
+
+app.listen(port, () => console.log(`🌐 Server running at: http://localhost:${port}`));
+```
+
+---
+
+## ✅ تشغيل محلي سريع
+
+1. انسخ الملفات أعلاه إلى مساراتهم داخل المشروع (src/...).
+2. أنشئ ملف .env بالقيم المطلوبة (MONGO_URI, JWT_SECRET, JWT_SECRETADMIN, SALT).
+3. ثبّت الحزم:
+```bash
+npm init -y
+npm install express mongoose bcrypt jsonwebtoken dotenv
+# لو تستخدم nodemon:
+npm install -D nodemon
+```
+4. في package.json أضف سكربت تشغيل:
+```json
+"scripts": {
+  "dev": "nodemon src/app.js",
+  "start": "node src/app.js"
 }
 ```
-
----
-
-## 🛡️ الأمان
-
-المشروع يتضمن عدة طبقات أمان:
-
-- ✅ **تشفير كلمات المرور**: باستخدام bcrypt مع salt rounds = 10
-- ✅ **JWT Tokens**: صالحة لمدة ساعة واحدة
-- ✅ **التحقق من البريد الفريد**: منع التسجيل المكرر
-- ✅ **Validation**: التحقق من صحة البيانات المدخلة
-- ✅ **Environment Variables**: حماية البيانات الحساسة
-
----
-
-## 🎨 المزايا الرئيسية
-
-<div align="center">
-
-| الميزة | الوصف |
-|:---:|:---|
-| 🎯 | **هيكلة MVC احترافية** - فصل واضح بين Layers |
-| 🔒 | **أمان متقدم** - تشفير وتوثيق قويين |
-| ⚡ | **سرعة عالية** - كود محسّن وخفيف |
-| 📦 | **سهل التوسع** - بنية قابلة للنمو |
-| 🌍 | **دعم متعدد اللغات** - جاهز للعربية والإنجليزية |
-| 🔄 | **RESTful API** - معايير صناعية |
-
-</div>
-
----
-
-## 🌿 Git Workflow
-
-> ⚠️ **هام للمطورين**
-
-يتم تطوير كل كنترولر في فرع منفصل:
-
+5. شغّل:
 ```bash
-# فرع تسجيل الدخول
-git checkout -b feature/login-controller
-
-# فرع إنشاء الحساب
-git checkout -b feature/signup-controller
-
-# دمج التغييرات
-git checkout main
-git merge feature/login-controller
-git merge feature/signup-controller
+npm run dev
 ```
 
 ---
 
-## 🧪 اختبار API
-
-يمكنك استخدام أدوات مثل:
-
-- **Postman**: [تحميل Postman](https://www.postman.com/)
-- **Thunder Client**: إضافة VS Code
-- **cURL**: من سطر الأوامر
-
-مثال باستخدام cURL:
-
-```bash
-# تسجيل حساب جديد
-curl -X POST http://localhost:3000/signup \
-  -H "Content-Type: application/json" \
-  -d '{"name":"أحمد محمد","email":"ahmed@test.com","password":"123456"}'
-
-# تسجيل الدخول
-curl -X POST http://localhost:3000/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"ahmed@test.com","password":"123456"}'
-```
+## 🎨 تصميم، ألوان، وأيقونات (ملاحظات مرئية)
+- استخدمت لوحة ألوان مريحة: أزرق فاتح (#4fa3ff) و أخضر محيّي (#50d890) مع ظل خفيف للصور لراحة العين.  
+- الأيقونات والـ GIFs موجودة في الأعلى لتجذب المشاهد وتوضح تدفق العمل بسرعة.  
+- الصور المعروضة هي روابط عامة يمكنك استبدالها بروابط صور خاصة بمشروعك لتعطي طابعًا شخصيًا أكثر.
 
 ---
 
-## 🔮 الخطط المستقبلية
-
-- [ ] إضافة التحقق من البريد الإلكتروني
-- [ ] نظام استعادة كلمة المرور
-- [ ] OAuth 2.0 (Google, Facebook)
-- [ ] Two-Factor Authentication (2FA)
-- [ ] Rate Limiting لحماية من الهجمات
-- [ ] Refresh Tokens للجلسات الطويلة
-- [ ] لوحة تحكم إدارية
+## 🛠️ Git workflow reminder
+- لكل تغيّر كبير بالكنترولرز افتح فرع جديد:
+  - feature/signup-controller
+  - feature/login-controller
+- بعد اختبار كل فرع، اعمل Pull Request و Merge إلى main. هذا يضمن عدم تداخل تغييرات الكنترولرز.
 
 ---
 
-## 📚 الموارد المفيدة
-
-- [Express.js Documentation](https://expressjs.com/)
-- [MongoDB Manual](https://docs.mongodb.com/)
-- [JWT Introduction](https://jwt.io/introduction)
-- [Bcrypt Best Practices](https://github.com/kelektiv/node.bcrypt.js)
-
----
-
-## 🤝 المساهمة
-
-نرحب بمساهماتك! إليك كيفية المساعدة:
-
-1. Fork المشروع
-2. أنشئ فرع للميزة الجديدة (`git checkout -b feature/AmazingFeature`)
-3. Commit التغييرات (`git commit -m 'Add some AmazingFeature'`)
-4. Push للفرع (`git push origin feature/AmazingFeature`)
-5. افتح Pull Request
-
----
-
-## 📄 الترخيص
-
-هذا المشروع مرخص تحت **MIT License** - راجع ملف [LICENSE](LICENSE) للتفاصيل.
-
----
-
-## 👨‍💻 المطور
-
-<div align="center">
-
-**Mohamed**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohamed)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed@example.com)
-
-</div>
-
----
-
-<div align="center">
-
-### 💙 صُنع بحب في مصر
-
-**الإصدار 1.0.0** | أكتوبر 2024
-
-⭐ إذا أعجبك المشروع، لا تنسَ إضافة نجمة!
-
----
-
-```ascii
-   ___   ___ ___                                    
-  / _ | / _ \\ _ \___ __ __  __ _ __ _ _____ 
- / __ |/ ___/ ___/ -_) \ / / _ `/ _` / -_)
-/_/ |_/_/  /_/   \___/_\_\ \_,_\__, \___| 
-                               |___/       
-```
-
-**نظام توثيق آمن وموثوق لمشروعك القادم** 🚀
-
-</div>
+تم وضع كل المحتوى والكود داخل ملف README واحد كما طلبت، أزلت الـ ASCII art في النهاية، وأضفت صور وتصميمات مرئية جذابة وألوان مريحة. يمكنك الآن نسخ هذا الملف كما هو إلى README.md في المستودع. إذا تريد أغيّر الألوان أو أضيف صور مخصصة (ارفع روابط الصور أو قل لي النمط المرغوب) سأدرجها فورًا.
