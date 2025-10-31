@@ -1,63 +1,337 @@
-# 🚀 Auth Framework Helper 🛠️
+<div align="center">
 
-<p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="220" alt="Framework Animation" />
-</p>
+# 🔐 E-Commerce Auth Framework
+
+### *نظام توثيق احترافي متكامل مع لوحة تحكم إدارية*
+
+<img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/main/images/handshake.gif" width="400" alt="Authentication System" />
+
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)](https://jwt.io/)
+[![BCrypt](https://img.shields.io/badge/BCrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)](https://github.com/kelektiv/node.bcrypt.js)
+
+---
+
+</div>
+
+## 📖 نظرة عامة
+
+**E-Commerce Auth Framework** هو نظام توثيق شامل ومتطور، مصمم خصيصاً لمشاريع التجارة الإلكترونية الاحترافية. يوفر نظام تسجيل دخول متقدم مع دعم الأدوار (User & Admin) وتأكيد البريد الإلكتروني.
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="300" alt="Secure Authentication">
+</div>
+
+### ✨ لماذا هذا المشروع مميز؟
+
+<table>
+<tr>
+<td width="50%">
+
+🎯 **نظام أدوار متقدم**
+- مستخدم عادي (User)
+- مسؤول (Admin)
+- JWT منفصل لكل دور
+
+</td>
+<td width="50%">
+
+🔒 **أمان متعدد الطبقات**
+- تشفير BCrypt قوي
+- تأكيد البريد الإلكتروني
+- حماية من الهجمات
+
+</td>
+</tr>
+<tr>
+<td>
+
+⚡ **بيانات شاملة**
+- الاسم والبريد
+- الجنس والعنوان
+- صورة الملف الشخصي
+- تواريخ تلقائية
+
+</td>
+<td>
+
+🏗️ **هيكلة MVC احترافية**
+- كود نظيف ومنظم
+- سهل التوسع والصيانة
+- توثيق كامل
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎬 معاينة النظام
 
 <div align="center">
 
-> ⚡️ مشروع مصغّر يشبه فريم‌ورك للتوثيق (Auth) — صفحتان فقط: Signup و Login — مبني بـ Node.js + Express + MongoDB + JWT — هيكلية MVC بسيطة ومنظمة.  
-> الألوان مريحة، صور توضيحية، وانميشن للواجهة.
+| 🔑 تسجيل الدخول | 📝 إنشاء حساب | 👤 الملف الشخصي |
+|:---:|:---:|:---:|
+| <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="150"/> |
+| تسجيل دخول آمن | إنشاء حساب سريع | إدارة البيانات |
 
 </div>
 
 ---
 
-## 🎯 ملخص سريع
-- صفحات المشروع: Signup (name, email, password) و Login (email, password).  
-- بعد تسجيل الدخول الناجح يتم إرجاع JWT Token في الـ response.  
-- متصل بقاعدة بيانات MongoDB ومستخدم Mongoose للنماذج.  
-- كل الأكواد المهمة موضوعة هنا في ملف README واحد لسهولة النسخ واللصق.  
-- تم إضافة صور ومقاطع GIF لواجهة العرض والتصميم.  
-- ملاحظة فريق التطوير: اعمل فرع لكل ميزة (مثلاً feature/signup-controller و feature/login-controller) ثم قم بعمل Merge إلى main بعد الانتهاء.
+## 🏗️ هيكلية المشروع الكاملة
 
----
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="80" alt="Project Structure">
+</div>
 
-## 🎨 معاينة مرئية (Preview)
-
-| Login (Animated) | Signup (Animated) |
-|:----------------:|:------------------:|
-| ![Login Animation](https://github.com/mohamed-dev/assets/raw/main/login.gif) | ![Signup Animation](https://github.com/mohamed-dev/assets/raw/main/signup.gif) |
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/45159366/235320093-df8d2b25-caa6-43e1-8c26-0cae46a1ce8e.png" width="420" alt="auth-structure" style="border-radius:10px;box-shadow:0 6px 18px rgba(79,163,255,0.18);" />
-  <img src="https://user-images.githubusercontent.com/45159366/235320114-9f7c7b7d-f0a3-43f9-bc4f-282c5ddfc7ae.png" width="420" alt="auth-flow" style="border-radius:10px;box-shadow:0 6px 18px rgba(80,216,144,0.14);" />
-</p>
-
----
-
-## 📁 كل شيء هنا — ملفات وشرح سريع
-فيما يلي الأكواد المطلوبة لكل جزء من المشروع موضوعة داخل هذا الملف لنسخها مباشرة إلى ملفات المشروع.
-
-- src/models/user.model.js
-- src/config/connect-mongo.js
-- src/controllers/auth.controller.js
-- src/routes/auth.routes.js
-- src/app.js
-
-تأكد من إنشاء ملف `.env` في جذر المشروع مع القيم التالية:
-```env
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/test
-JWT_SECRET=USER_SECRET
-JWT_SECRETADMIN=ADMIN_SECRET
-SALT=10
+```
+📦 E-commerce-auth/
+┃
+┣ 📂 src/
+┃ ┣ 📂 config/
+┃ ┃ ┗ 📜 connect-mongo.js          # اتصال MongoDB مع معالجة الأخطاء
+┃ ┃
+┃ ┣ 📂 controllers/
+┃ ┃ ┗ 📜 auth.controller.js        # Login & Signup Controllers
+┃ ┃
+┃ ┣ 📂 models/
+┃ ┃ ┗ 📜 user.model.js              # نموذج المستخدم المتقدم
+┃ ┃
+┃ ┣ 📂 routes/
+┃ ┃ ┗ 📜 auth.routes.js             # مسارات API
+┃ ┃
+┃ ┗ 📜 app.js                       # التطبيق الرئيسي
+┃
+┣ 📜 .env                            # المتغيرات البيئية
+┣ 📜 package.json
+┗ 📜 README.md
 ```
 
 ---
 
-## src/models/user.model.js
+## 🚀 البدء السريع
 
-```js
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" alt="Getting Started">
+</div>
+
+### 📋 المتطلبات الأساسية
+
+```bash
+Node.js >= 14.x
+MongoDB >= 4.x
+npm or yarn
+```
+
+### ⚙️ خطوات التثبيت
+
+```bash
+# 1️⃣ استنساخ المشروع
+git clone https://github.com/your-username/e-commerce-auth.git
+cd e-commerce-auth
+
+# 2️⃣ تثبيت الحزم
+npm install
+
+# 3️⃣ إعداد ملف البيئة
+cp .env.example .env
+
+# 4️⃣ تشغيل السيرفر
+npm run dev
+```
+
+<div align="center">
+
+🎉 **السيرفر يعمل الآن على** → `http://localhost:3000`
+
+</div>
+
+---
+
+## 🔧 إعدادات البيئة (.env)
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="80" alt="Environment Setup">
+</div>
+
+```env
+# 🗄️ MongoDB Connection
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ecommerce
+
+# 🔐 JWT Secrets
+JWT_SECRET=your_user_secret_key_here
+JWT_SECRETADMIN=your_admin_secret_key_here
+
+# 🧂 BCrypt Salt Rounds
+SOLT=10
+
+# 🌐 Server Configuration
+PORT=3000
+```
+
+---
+
+## 📡 نقاط النهاية API
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="80" alt="API Endpoints">
+</div>
+
+### 1️⃣ إنشاء حساب جديد (Signup)
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/6711/6711659.png" width="100" alt="Signup">
+</div>
+
+```http
+POST /signup
+Content-Type: application/json
+```
+
+**البيانات المطلوبة:**
+```json
+{
+  "name": "محمد أحمد",
+  "email": "mohamed@example.com",
+  "password": "SecurePass123",
+  "gender": "male",
+  "address": "القاهرة، مصر"
+}
+```
+
+**الاستجابة (201 Created):**
+```json
+{
+  "message": "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
+  "user": {
+    "_id": "507f1f77bcf86cd799439011",
+    "name": "محمد أحمد",
+    "email": "mohamed@example.com",
+    "gender": "male",
+    "address": "القاهرة، مصر",
+    "confirmEmail": false,
+    "role": "user",
+    "createdAt": "2024-10-31T10:30:00.000Z"
+  }
+}
+```
+
+**حالات الخطأ:**
+- `409 Conflict` - البريد مسجل مسبقاً
+- `500 Internal Server Error` - خطأ في الخادم
+
+---
+
+### 2️⃣ تسجيل الدخول (Login)
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/6357/6357048.png" width="100" alt="Login">
+</div>
+
+```http
+POST /login
+Content-Type: application/json
+```
+
+**البيانات المطلوبة:**
+```json
+{
+  "email": "mohamed@example.com",
+  "password": "SecurePass123"
+}
+```
+
+**الاستجابة (200 OK):**
+```json
+{
+  "message": "done",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY..."
+}
+```
+
+**حالات الخطأ:**
+- `404 Not Found` - بيانات دخول خاطئة
+- `403 Forbidden` - البريد غير مؤكد
+- `401 Unauthorized` - دور المستخدم غير صالح
+- `500 Internal Server Error` - خطأ في الخادم
+
+---
+
+## 🗃️ نموذج البيانات (User Schema)
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="100" alt="Database Schema">
+</div>
+
+```javascript
+const userSchema = new Schema({
+  name: {
+    type: String,
+    required: [true, 'Name is required'],
+    minlength: 3,
+    maxlength: 25,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: 6
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
+    default: "male"
+  },
+  address: {
+    type: String
+  },
+  image: String,
+  confirmEmail: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: "user"
+  }
+}, { timestamps: true });
+```
+
+---
+
+## 🔐 نظام الأمان المتقدم
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200" alt="Security System">
+</div>
+
+| الميزة | الوصف | التنفيذ |
+|:---:|:---|:---:|
+| 🔒 | **تشفير كلمات المرور** | BCrypt مع 10 Salt Rounds |
+| 🎫 | **JWT Tokens منفصلة** | User Token & Admin Token |
+| ✉️ | **تأكيد البريد** | منع الدخول قبل التأكيد |
+| 🛡️ | **Unique Email** | لا تكرار للحسابات |
+| ⏱️ | **Token Expiration** | صلاحية ساعة واحدة |
+| 🔍 | **Role-Based Auth** | صلاحيات حسب الدور |
+
+---
+
+## 📝 أكواد المشروع الكاملة
+
+### 🗄️ **1. نموذج المستخدم** `user.model.js`
+
+```javascript
 import mongoose, { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
@@ -106,48 +380,59 @@ export default userModel;
 
 ---
 
-## src/config/connect-mongo.js
+### ⚙️ **2. اتصال قاعدة البيانات** `connect-mongo.js`
 
-```js
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" width="80" alt="MongoDB Connection">
+</div>
+
+```javascript
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 import path from 'path';
 
 dotenv.config({ path: path.resolve('.env') });
 
-console.log({ envPath: path.resolve('.env') });
+console.log({ path: path.resolve('.env') });
 
 const dbConnect = () => {
   mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ Database Connected"))
-    .catch((err) => console.log("❌ Database Error:", err));
-};
+    .then(() => console.log("✅ Database Connected Successfully"))
+    .catch((err) => console.log("❌ Database Connection Error:", err));
+}
 
 export default dbConnect;
 ```
 
 ---
 
-## src/controllers/auth.controller.js
+### 🎮 **3. الكنترولرز** `auth.controller.js`
 
-```js
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920235.png" width="80" alt="Controllers">
+</div>
+
+```javascript
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import userModel from "../models/user.model.js";
 
-/*
-  Signup controller
-*/
+// 📝 Signup Controller
 export const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
     const checkUser = await userModel.findOne({ email });
     if (checkUser) {
-      return res.status(409).json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
+      return res
+        .status(409)
+        .json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
     }
 
-    const hashPassword = await bcrypt.hash(password, parseInt(process.env.SALT || "10"));
+    const hashPassword = await bcrypt.hash(
+      password,
+      parseInt(process.env.SOLT)
+    );
 
     const user = await userModel.create({
       name,
@@ -161,13 +446,13 @@ export const signup = async (req, res) => {
     });
   } catch (error) {
     console.error("Signup error:", error);
-    return res.status(500).json({ message: "حدث خطأ داخلي في الخادم. حاول لاحقًا." });
+    return res
+      .status(500)
+      .json({ message: "حدث خطأ داخلي في الخادم. حاول لاحقًا." });
   }
 };
 
-/*
-  Login controller
-*/
+// 🔑 Login Controller
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -183,22 +468,33 @@ export const login = async (req, res) => {
     }
 
     if (!user.confirmEmail) {
-      return res.status(403).json({ message: "Please confirm your email before proceeding" });
+      return res.status(403).json({ 
+        message: "Please confirm your email before proceeding" 
+      });
     }
 
     let token;
     switch (user.role) {
       case "user":
-        token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        token = jwt.sign(
+          { id: user._id },
+          process.env.JWT_SECRET,
+          { expiresIn: "1h" }
+        );
         break;
       case "admin":
-        token = jwt.sign({ id: user._id }, process.env.JWT_SECRETADMIN, { expiresIn: "1h" });
+        token = jwt.sign(
+          { id: user._id },
+          process.env.JWT_SECRETADMIN,
+          { expiresIn: "1h" }
+        );
         break;
       default:
         return res.status(401).json({ message: "login role invalid" });
     }
 
     return res.status(200).json({ message: "done", token });
+
   } catch (error) {
     console.error("Login error:", error);
     return res.status(500).json({ message: 'Internal server error' });
@@ -208,80 +504,214 @@ export const login = async (req, res) => {
 
 ---
 
-## src/routes/auth.routes.js
+### 🛣️ **4. المسارات** `auth.routes.js`
 
-```js
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" width="80" alt="Routes">
+</div>
+
+```javascript
 import express from "express";
 import { signup, login } from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
-router.post("/signup", signup);
 router.post("/login", login);
+router.post("/signup", signup);
 
 export default router;
 ```
 
 ---
 
-## src/app.js
+### 🚀 **5. التطبيق الرئيسي** `app.js`
 
-```js
-import express from 'express';
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" width="80" alt="Node.js App">
+</div>
+
+```javascript
 import dbConnect from './config/connect-mongo.js';
 import router from './routes/auth.routes.js';
+import express from 'express';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(express.json());
 dbConnect();
 
 app.use("/", router);
 
-app.listen(port, () => console.log(`🌐 Server running at: http://localhost:${port}`));
+app.listen(port, () => console.log(`🚀 Server running at: http://localhost:${port}`));
 ```
 
 ---
 
-## ✅ تشغيل محلي سريع
+## 🔄 Git Workflow للمطورين
 
-1. انسخ الملفات أعلاه إلى مساراتهم داخل المشروع (src/...).
-2. أنشئ ملف .env بالقيم المطلوبة (MONGO_URI, JWT_SECRET, JWT_SECRETADMIN, SALT).
-3. ثبّت الحزم:
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="100" alt="Git Workflow">
+</div>
+
+> ⚠️ **هام للفريق التطويري**
+
+يتم تطوير كل ميزة في فرع منفصل:
+
 ```bash
-npm init -y
-npm install express mongoose bcrypt jsonwebtoken dotenv
-# لو تستخدم nodemon:
-npm install -D nodemon
+# 🌿 إنشاء فرع Login
+git checkout -b feature/login-controller
+
+# 🌿 إنشاء فرع Signup
+git checkout -b feature/signup-controller
+
+# ✅ دمج التغييرات في Main
+git checkout main
+git merge feature/login-controller
+git merge feature/signup-controller
 ```
-4. في package.json أضف سكربت تشغيل:
+
+---
+
+## 🧪 اختبار API
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" width="100" alt="API Testing">
+</div>
+
+### باستخدام cURL:
+
+```bash
+# 📝 تسجيل حساب جديد
+curl -X POST http://localhost:3000/signup \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "أحمد محمد",
+    "email": "ahmed@test.com",
+    "password": "123456",
+    "gender": "male",
+    "address": "الإسكندرية"
+  }'
+
+# 🔑 تسجيل الدخول
+curl -X POST http://localhost:3000/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "ahmed@test.com",
+    "password": "123456"
+  }'
+```
+
+---
+
+## 🎨 المزايا الرئيسية
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="200" alt="Features">
+</div>
+
+| 🎯 الميزة | 📝 التفاصيل |
+|:---:|:---|
+| ⚡ | **أداء عالي** - كود محسّن وسريع |
+| 🏗️ | **MVC Structure** - هيكلة احترافية |
+| 🔐 | **Multi-layer Security** - أمان متعدد الطبقات |
+| 👥 | **Role Management** - إدارة الأدوار (User/Admin) |
+| 📧 | **Email Confirmation** - تأكيد البريد الإلكتروني |
+| 🌍 | **RTL Support** - دعم العربية والإنجليزية |
+| 🔄 | **RESTful API** - معايير صناعية |
+| 📦 | **Easy to Scale** - قابل للتوسع |
+
+---
+
+## 🔮 الخطط المستقبلية
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/3588/3588592.png" width="100" alt="Future Plans">
+</div>
+
+- [ ] إرسال تأكيد البريد الإلكتروني
+- [ ] نظام استعادة كلمة المرور
+- [ ] OAuth 2.0 (Google, Facebook, GitHub)
+- [ ] Two-Factor Authentication (2FA)
+- [ ] Rate Limiting للحماية من Brute Force
+- [ ] Refresh Tokens للجلسات الطويلة
+- [ ] لوحة تحكم إدارية كاملة
+- [ ] نظام الصلاحيات المتقدم
+- [ ] Logging & Monitoring
+
+---
+
+## 📚 الحزم المستخدمة
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" width="80" alt="NPM Packages">
+</div>
+
 ```json
-"scripts": {
-  "dev": "nodemon src/app.js",
-  "start": "node src/app.js"
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1"
+  }
 }
 ```
-5. شغّل:
-```bash
-npm run dev
-```
 
 ---
 
-## 🎨 تصميم، ألوان، وأيقونات (ملاحظات مرئية)
-- استخدمت لوحة ألوان مريحة: أزرق فاتح (#4fa3ff) و أخضر محيّي (#50d890) مع ظل خفيف للصور لراحة العين.  
-- الأيقونات والـ GIFs موجودة في الأعلى لتجذب المشاهد وتوضح تدفق العمل بسرعة.  
-- الصور المعروضة هي روابط عامة يمكنك استبدالها بروابط صور خاصة بمشروعك لتعطي طابعًا شخصيًا أكثر.
+## 🤝 المساهمة في المشروع
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="100" alt="Contribute">
+</div>
+
+نرحب بكل المساهمات! إليك الخطوات:
+
+1. 🍴 **Fork** المشروع
+2. 🌿 أنشئ فرع جديد (`git checkout -b feature/amazing-feature`)
+3. ✍️ اكتب الكود (`git commit -m 'Add amazing feature'`)
+4. 📤 ارفع التغييرات (`git push origin feature/amazing-feature`)
+5. 🔀 افتح **Pull Request**
 
 ---
 
-## 🛠️ Git workflow reminder
-- لكل تغيّر كبير بالكنترولرز افتح فرع جديد:
-  - feature/signup-controller
-  - feature/login-controller
-- بعد اختبار كل فرع، اعمل Pull Request و Merge إلى main. هذا يضمن عدم تداخل تغييرات الكنترولرز.
+## 📄 الترخيص
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/3406/3406886.png" width="80" alt="License">
+</div>
+
+هذا المشروع مرخص تحت **MIT License** - حرية الاستخدام والتعديل
 
 ---
 
-تم وضع كل المحتوى والكود داخل ملف README واحد كما طلبت، أزلت الـ ASCII art في النهاية، وأضفت صور وتصميمات مرئية جذابة وألوان مريحة. يمكنك الآن نسخ هذا الملف كما هو إلى README.md في المستودع. إذا تريد أغيّر الألوان أو أضيف صور مخصصة (ارفع روابط الصور أو قل لي النمط المرغوب) سأدرجها فورًا.
+## 👨‍💻 المطور
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Technologist.png" width="100" alt="Developer">
+
+**Mohamed Developer**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohamed)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed@example.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://mohamed-portfolio.com)
+
+</div>
+
+---
+
+<div align="center">
+
+### 💙 صُنع بحب في مصر 🇪🇬
+
+**الإصدار 1.0.0** | أكتوبر 2024
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star"> **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star">
+
+**نظام توثيق احترافي آمن وموثوق لمشروعك القادم** 🚀
+
+</div>
