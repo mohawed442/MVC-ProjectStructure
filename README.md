@@ -4,7 +4,7 @@
 
 ### *نظام توثيق احترافي متكامل مع لوحة تحكم إدارية*
 
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="600" alt="Authentication Flow" />
+<img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/main/images/handshake.gif" width="400" alt="Authentication System" />
 
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express)](https://expressjs.com/)
@@ -12,20 +12,16 @@
 [![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)](https://jwt.io/)
 [![BCrypt](https://img.shields.io/badge/BCrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)](https://github.com/kelektiv/node.bcrypt.js)
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
+---
 
 </div>
-
----
 
 ## 📖 نظرة عامة
 
 **E-Commerce Auth Framework** هو نظام توثيق شامل ومتطور، مصمم خصيصاً لمشاريع التجارة الإلكترونية الاحترافية. يوفر نظام تسجيل دخول متقدم مع دعم الأدوار (User & Admin) وتأكيد البريد الإلكتروني.
 
 <div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.png" width="200" />
-
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="300" alt="Secure Authentication">
 </div>
 
 ### ✨ لماذا هذا المشروع مميز؟
@@ -76,17 +72,20 @@
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/229223156-0cbdaba9-3128-4d8e-8719-b6b4cf741b67.gif" width="400">
-
 | 🔑 تسجيل الدخول | 📝 إنشاء حساب | 👤 الملف الشخصي |
 |:---:|:---:|:---:|
-| <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="200"/> | <img src="https://user-images.githubusercontent.com/74038190/216121919-60befe4d-11c6-4227-8992-35221d463365.png" width="200"/> | <img src="https://user-images.githubusercontent.com/74038190/216121986-1a506a75-2381-41c2-baff-eeab94bcec74.png" width="200"/> |
+| <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="150"/> |
+| تسجيل دخول آمن | إنشاء حساب سريع | إدارة البيانات |
 
 </div>
 
 ---
 
 ## 🏗️ هيكلية المشروع الكاملة
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="80" alt="Project Structure">
+</div>
 
 ```
 📦 E-commerce-auth/
@@ -111,13 +110,13 @@
 ┗ 📜 README.md
 ```
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-</div>
-
 ---
 
 ## 🚀 البدء السريع
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" alt="Getting Started">
+</div>
 
 ### 📋 المتطلبات الأساسية
 
@@ -128,10 +127,6 @@ npm or yarn
 ```
 
 ### ⚙️ خطوات التثبيت
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100">
-</div>
 
 ```bash
 # 1️⃣ استنساخ المشروع
@@ -158,6 +153,10 @@ npm run dev
 
 ## 🔧 إعدادات البيئة (.env)
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="80" alt="Environment Setup">
+</div>
+
 ```env
 # 🗄️ MongoDB Connection
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ecommerce
@@ -173,18 +172,18 @@ SOLT=10
 PORT=3000
 ```
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="100">
-</div>
-
 ---
 
 ## 📡 نقاط النهاية API
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="80" alt="API Endpoints">
+</div>
+
 ### 1️⃣ إنشاء حساب جديد (Signup)
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216122003-15c1f6c5-9f63-4381-b21e-71bbda54808d.png" width="80">
+<img src="https://cdn-icons-png.flaticon.com/512/6711/6711659.png" width="100" alt="Signup">
 </div>
 
 ```http
@@ -229,7 +228,7 @@ Content-Type: application/json
 ### 2️⃣ تسجيل الدخول (Login)
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216120974-24a76b31-7f39-41f1-a38f-b3c1377cc612.png" width="80">
+<img src="https://cdn-icons-png.flaticon.com/512/6357/6357048.png" width="100" alt="Login">
 </div>
 
 ```http
@@ -264,7 +263,7 @@ Content-Type: application/json
 ## 🗃️ نموذج البيانات (User Schema)
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="100">
+<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="100" alt="Database Schema">
 </div>
 
 ```javascript
@@ -314,6 +313,8 @@ const userSchema = new Schema({
 ## 🔐 نظام الأمان المتقدم
 
 <div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200" alt="Security System">
+</div>
 
 | الميزة | الوصف | التنفيذ |
 |:---:|:---|:---:|
@@ -323,12 +324,6 @@ const userSchema = new Schema({
 | 🛡️ | **Unique Email** | لا تكرار للحسابات |
 | ⏱️ | **Token Expiration** | صلاحية ساعة واحدة |
 | 🔍 | **Role-Based Auth** | صلاحيات حسب الدور |
-
-</div>
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="400">
-</div>
 
 ---
 
@@ -387,6 +382,10 @@ export default userModel;
 
 ### ⚙️ **2. اتصال قاعدة البيانات** `connect-mongo.js`
 
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" width="80" alt="MongoDB Connection">
+</div>
+
 ```javascript
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
@@ -408,6 +407,10 @@ export default dbConnect;
 ---
 
 ### 🎮 **3. الكنترولرز** `auth.controller.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920235.png" width="80" alt="Controllers">
+</div>
 
 ```javascript
 import bcrypt from "bcrypt";
@@ -503,6 +506,10 @@ export const login = async (req, res) => {
 
 ### 🛣️ **4. المسارات** `auth.routes.js`
 
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" width="80" alt="Routes">
+</div>
+
 ```javascript
 import express from "express";
 import { signup, login } from "../controllers/auth.controller.js";
@@ -518,6 +525,10 @@ export default router;
 ---
 
 ### 🚀 **5. التطبيق الرئيسي** `app.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" width="80" alt="Node.js App">
+</div>
 
 ```javascript
 import dbConnect from './config/connect-mongo.js';
@@ -540,7 +551,7 @@ app.listen(port, () => console.log(`🚀 Server running at: http://localhost:${p
 ## 🔄 Git Workflow للمطورين
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif" width="400">
+<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="100" alt="Git Workflow">
 </div>
 
 > ⚠️ **هام للفريق التطويري**
@@ -565,7 +576,7 @@ git merge feature/signup-controller
 ## 🧪 اختبار API
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100">
+<img src="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" width="100" alt="API Testing">
 </div>
 
 ### باستخدام cURL:
@@ -596,8 +607,8 @@ curl -X POST http://localhost:3000/login \
 ## 🎨 المزايا الرئيسية
 
 <div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="200" alt="Features">
+</div>
 
 | 🎯 الميزة | 📝 التفاصيل |
 |:---:|:---|
@@ -610,14 +621,12 @@ curl -X POST http://localhost:3000/login \
 | 🔄 | **RESTful API** - معايير صناعية |
 | 📦 | **Easy to Scale** - قابل للتوسع |
 
-</div>
-
 ---
 
 ## 🔮 الخطط المستقبلية
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257463-4d082cb4-7483-4eaf-bc25-6dde2628aabd.gif" width="100">
+<img src="https://cdn-icons-png.flaticon.com/512/3588/3588592.png" width="100" alt="Future Plans">
 </div>
 
 - [ ] إرسال تأكيد البريد الإلكتروني
@@ -633,6 +642,10 @@ curl -X POST http://localhost:3000/login \
 ---
 
 ## 📚 الحزم المستخدمة
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" width="80" alt="NPM Packages">
+</div>
 
 ```json
 {
@@ -651,7 +664,7 @@ curl -X POST http://localhost:3000/login \
 ## 🤝 المساهمة في المشروع
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="100">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="100" alt="Contribute">
 </div>
 
 نرحب بكل المساهمات! إليك الخطوات:
@@ -666,6 +679,10 @@ curl -X POST http://localhost:3000/login \
 
 ## 📄 الترخيص
 
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/3406/3406886.png" width="80" alt="License">
+</div>
+
 هذا المشروع مرخص تحت **MIT License** - حرية الاستخدام والتعديل
 
 ---
@@ -674,7 +691,7 @@ curl -X POST http://localhost:3000/login \
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Technologist.png" width="100" alt="Developer">
 
 **Mohamed Developer**
 
@@ -689,15 +706,11 @@ curl -X POST http://localhost:3000/login \
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-
-### 💙 صُنع بحب في مصر 🇪🇬
+### 💙 صُنع في مصر 🇪🇬
 
 **الإصدار 1.0.0** | أكتوبر 2024
 
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="400">
-
-⭐ **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** ⭐
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star"> **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star">
 
 **نظام توثيق احترافي آمن وموثوق لمشروعك القادم** 🚀
 
