@@ -1,89 +1,156 @@
-<h1 align="center">
-  🚀 Auth Framework Helper 🛠️  
-</h1>
+<div align="center">
 
-<p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="200" alt="Framework Animation" />
-</p>
+# ⚡️ E-Commerce Auth Mini Framework
 
-<p align="center">
-  مشروع مساعد يشبه <strong>Framework</strong> جاهز لبناء نظام تسجيل دخول وتسجيل حساب بسيط باستخدام <strong>Node.js + Express + MongoDB</strong> 🚀  
-</p>
+✨ مشروع بسيط يشبه Framework صغير، يحتوي على صفحات **Login** و **Signup** متصلة بقاعدة بيانات MongoDB  
+مع استخدام **Express.js + Mongoose + JWT + bcrypt**.
 
----
+<br/>
 
-## 🧱 هيكلة المشروع (Project Structure)
-
-📦 back-End
-┣ 📂 src
-┃ ┣ 📂 config
-┃ ┃ ┗ 📜 connect-mongo.js ← الاتصال بقاعدة البيانات MongoDB
-┃ ┣ 📂 controllers
-┃ ┃ ┗ 📜 auth.controller.js ← يحتوي على دوال login و signup
-┃ ┣ 📂 models
-┃ ┃ ┗ 📜 user.model.js ← موديل المستخدم (name, email, password, ...)
-┃ ┣ 📂 routes
-┃ ┃ ┗ 📜 auth.routes.js ← الراوتر الأساسي للمصادقة
-┃ ┗ 📜 app.js ← نقطة تشغيل السيرفر
-┣ 📜 .env ← متغيرات البيئة (MONGO_URI, JWT_SECRET...)
-┗ 📜 README.md ← الملف التوضيحي (أنت هنا 😎)
-
-yaml
-Copy code
+🚀 **مبني بلغة Node.js (ES Modules)**  
+🧩 **يعتمد على هيكلية MVC منظمة**  
+🎨 **تصميم README جذاب مع ألوان مريحة للعين**
 
 ---
 
-## 🧬 الموديل (User Model)
+🌈 **لقطات توضيحية (Animated Preview)**
+
+| 👤 Login Page | 📝 Signup Page |
+|:--------------:|:----------------:|
+| ![Login Animation](https://github.com/mohamed-dev/assets/raw/main/login.gif) | ![Signup Animation](https://github.com/mohamed-dev/assets/raw/main/signup.gif) |
+
+---
+
+</div>
+
+## 📁 Project Structure
+
+```
+E-commerce-f/
+│
+├── 📂 src/
+│ ├── 📂 config/
+│ │ └── connect-mongo.js
+│ │
+│ ├── 📂 controllers/
+│ │ └── auth.controller.js
+│ │
+│ ├── 📂 models/
+│ │ └── user.model.js
+│ │
+│ ├── 📂 routes/
+│ │ └── auth.routes.js
+│ │
+│ └── app.js
+│
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧠 فكرة المشروع
+
+المشروع ده عبارة عن **نظام تسجيل دخول وتسجيل مستخدمين** بسيط جدًا، لكنه مبني بطريقة منظمة تشبه الـ Framework.  
+يحتوي فقط على صفحتين رئيسيتين:
+
+- **Signup** ➜ لإنشاء حساب جديد.  
+- **Login** ➜ لتسجيل الدخول وإرجاع JWT Token في الـ Response.
+
+---
+
+## ⚙️ الإعدادات (Environment)
+
+قم بإنشاء ملف `.env` في جذر المشروع وأضف الآتي:
+
+```env
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/test
+JWT_SECRET=USER_SECRET
+JWT_SECRETADMIN=ADMIN_SECRET
+SALT=10
+```
+
+---
+
+## 🧩 Models
+
+### 📄 user.model.js
+
 ```js
 import mongoose, { Schema , model } from "mongoose";
 
 const userSchema = new Schema({
-  name: { type: String, required: true, minlength: 3, maxlength: 25, trim: true },
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  password: { type: String, required: true, minlength: 6 },
-  gender: { type: String, enum: ['male', 'female'], default: "male" },
+  name: {
+    type: String,
+    required: [true, 'Name is required'],
+    minlength : 3 ,
+    maxlength : 25 ,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: 6
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
+    default : "male"
+  },
   address: String,
   image: String,
-  confirmEmail: { type: Boolean, default: false },
-  role: { type: String, enum: ['user', 'admin'], default: "user" }
-},{timestamps : true});
+  confirmEmail: {
+    type: Boolean,
+    default: false
+  },
+  role:{
+    type: String,
+    enum: ['user', 'admin'],
+    default : "user"
+  }
+},{timestamps : true})
 
-const userModel = mongoose.models.User || model("User", userSchema);
+const userModel = mongoose.models.User || model("User", userSchema) ;
 export default userModel;
-⚙️ الاتصال بقاعدة البيانات (MongoDB)
-js
-Copy code
+```
+
+---
+
+## ⚙️ Database Connection
+
+### 📄 connect-mongo.js
+
+```js
 import mongoose from 'mongoose'
 import * as dotenv from 'dotenv'
-import path from 'path'
+import path from 'path';
 
 dotenv.config({ path: path.resolve('.env') });
 
-const dbConnect = ()=>{
+const dbConnect = () => {
     mongoose.connect(process.env.MONGO_URI)
-    .then(()=>console.log("✅ Connected to MongoDB"))
-    .catch((err)=>console.log("❌ Database connection error:", err))
+    .then(()=>console.log("✅ Database Connected"))
+    .catch((err)=>console.log("❌ Database Error:", err))
 }
 
-export default dbConnect
-🚀 نقطة التشغيل (Server Entry)
-js
-Copy code
-import dbConnect from './config/connect-mongo.js';
-import router from './routes/auth.routes.js';
-import express from 'express';
+export default dbConnect;
+```
 
-const app = express();
-const port = 3000;
+---
 
-app.use(express.json());
-dbConnect();
-app.use("/", router);
+## 🧭 Routes
 
-app.listen(port, () => console.log(`🚀 Server running at http://localhost:${port}`));
-🧭 الراوتر (Routes)
-js
-Copy code
+### 📄 auth.routes.js
+
+```js
 import express from "express";
 import { signup, login } from "../controllers/auth.controller.js";
 
@@ -93,36 +160,56 @@ router.post("/login", login);
 router.post("/signup", signup);
 
 export default router;
-🧩 الكنترولر (Controller)
-✳️ Signup
-js
-Copy code
+```
+
+---
+
+## 🧠 Controllers
+
+### 📄 auth.controller.js
+
+```js
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import userModel from "../models/user.model.js";
+
 export const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+
     const checkUser = await userModel.findOne({ email });
-    if (checkUser) return res.status(409).json({ message: "البريد الإلكتروني مسجل بالفعل" });
+    if (checkUser) {
+      return res.status(409).json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
+    }
 
-    const hashPassword = await bcrypt.hash(password, parseInt(process.env.SOLT));
-    const user = await userModel.create({ name, email, password: hashPassword });
+    const hashPassword = await bcrypt.hash(password, parseInt(process.env.SALT));
 
-    return res.status(201).json({ message: "تم إنشاء الحساب بنجاح.", user });
+    const user = await userModel.create({
+      name,
+      email,
+      password: hashPassword,
+    });
+
+    return res.status(201).json({
+      message: "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
+      user,
+    });
   } catch (error) {
     console.error("Signup error:", error);
-    return res.status(500).json({ message: "خطأ في السيرفر." });
+    return res.status(500).json({ message: "حدث خطأ داخلي في الخادم." });
   }
 };
-🔑 Login
-js
-Copy code
-export const login = async (req , res)=>{
-  try {
-    const { email , password } = req.body;
-    const user = await userModel.findOne({ email });
-    if (!user) return res.status(404).json({ message:"بيانات تسجيل الدخول غير صحيحة" });
 
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(404).json({ message:"بيانات تسجيل الدخول غير صحيحة" });
+
+export const login = async (req, res) => {
+  try {
+    const  {email , password } = req.body;
+    const user = await userModel.findOne({email});
+
+    if (!user) return res.status(404).json({message:"بيانات تسجيل دخول غير صحيحة"});
+
+    const match = await bcrypt.compare(password,user.password);
+    if (!match) return res.status(404).json({message:"كلمة المرور غير صحيحة"});
 
     if (!user.confirmEmail) {
       return res.status(403).json({ message: "يرجى تأكيد البريد الإلكتروني أولاً" });
@@ -140,39 +227,83 @@ export const login = async (req , res)=>{
         return res.status(401).json({ message: "دور المستخدم غير صالح" });
     }
 
-    return res.status(200).json({ message: "تم تسجيل الدخول بنجاح", token });
+    return res.status(200).json({message : "تم تسجيل الدخول بنجاح" , token});
   } catch (error) {
     console.error("Login error:", error);
-    return res.status(500).json({ message: "حدث خطأ داخلي في الخادم." });
+    return res.status(500).json({message: 'حدث خطأ داخلي في الخادم'});
   }
 };
-🎨 واجهة المشروع (Animation Preview)
-<p align="center"> <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3A5eHZraW9vZDFubnYwbXZ6ZGczOGJ6OTRybmRycjVkOHg1am11NCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JtBZm8yGdF3Xy/giphy.gif" width="450" alt="Animation Example" /> </p>
-🪄 مميزات المشروع
-✅ نظام تسجيل دخول وتسجيل حساب كامل
-✅ استخدام JWT لتأمين الجلسات
-✅ التحقق من البريد الإلكتروني
-✅ بنية نظيفة على أسلوب MVC
-✅ سهل التوسيع لأي مشروع أكبر
-✅ ألوان مريحة للعين وتصميم جذاب 💙
+```
 
-⚡ أوامر التشغيل
-bash
-Copy code
+---
+
+## 🚀 Main App
+
+### 📄 app.js
+
+```js
+import express from 'express'
+import dbConnect from './config/connect-mongo.js';
+import router from './routes/auth.routes.js';
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+dbConnect();
+
+app.use("/", router);
+
+app.listen(port, () => console.log(`🌐 Server running at: http://localhost:${port}`));
+```
+
+---
+
+## 🧰 أوامر التشغيل
+
+```bash
 # تثبيت الحزم
 npm install
 
-# إنشاء ملف .env
-MONGO_URI=mongodb+srv://<your-cluster>
-JWT_SECRET=yourSecret
-JWT_SECRETADMIN=adminSecret
-SOLT=8
-
-# تشغيل المشروع
+# تشغيل السيرفر
 npm run dev
-💬 تواصل معي
-📧 Email: yourmail@example.com
-🐙 GitHub: YourGitHubProfile
-🌐 Website: yourwebsite.com
+```
 
-<h3 align="center"> ✨ تم تصميم هذا المشروع بحب ❤️ باستخدام Node.js و Express ✨ </h3> ```
+---
+
+## ✨ مزايا المشروع
+
+✅ هيكلية MVC منظمة  
+✅ اتصال كامل بـ MongoDB  
+✅ Hashing باستخدام bcrypt  
+✅ JWT Tokens للتوثيق  
+✅ سهولة التطوير والتوسع مستقبلاً  
+✅ تصميم README جميل ومتحرك ✨
+
+---
+
+## 🌟 أنميشن شعار (ASCII Art)
+
+```
+   ______      _                                      
+  / ____/___  (_)___  ____  ____ ___  ____ _____  ___ 
+ / /   / __ \/ / __ \/ __ \/ __ `__ \/ __ `/ __ \/ _ \
+/ /___/ /_/ / / / / / /_/ / / / / / / /_/ / / / /  __/
+\____/\____/_/_/ /_/\____/_/ /_/ /_/\__,_/_/ /_/\___/ 
+                                                      
+```
+
+---
+
+## 🧩 معاينة لونية جميلة (Dark + Light)
+
+🌙 الوضع الداكن	☀️ الوضع الفاتح
+
+---
+
+<div align="center">
+💙 تم التصميم بواسطة Mohamed  
+📦 Framework-Like Auth Template  
+🕓 الإصدار 1.0.0  
+🚀 جاهز للنشر على GitHub  
+</div>
