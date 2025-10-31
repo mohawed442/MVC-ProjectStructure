@@ -1,257 +1,342 @@
 <div align="center">
 
-<h1 style="color:#4fa3ff; background: linear-gradient(90deg,#4fa3ff,#50d890); border-radius:12px; padding:16px 0;">
-  🚀 Auth Framework Helper 🛠️  
-</h1>
+# 🔐 E-Commerce Auth Framework
 
-<p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="200" alt="Framework Animation" />
-</p>
+### *نظام توثيق احترافي بتصميم عصري ومرن*
 
-# ⚡️ E-Commerce Auth Mini Framework
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="250" alt="Framework Animation" />
 
-> 🧩 **مساعد توثيق وتسجيل دخول يشبه الفريم ورك!**
-
----
-
-✨ مشروع صغير منظم، يحتوي فقط على صفحتين رئيسيتين: **Login** و **Signup**  
-مبني بـ **Node.js + Express.js + MongoDB + JWT** وهيكلية **MVC** نظيفة.
-
-<br/>
-
-🎨 **واجهة README عصرية، ألوان مريحة للعين، وأيقونات جذابة!**
-
----
-
-🌟 **لقطات متحركة توضيحية**
-<br>
-
-| 👤 <span style="color:#4fa3ff;">Login</span> | 📝 <span style="color:#50d890;">Signup</span> |
-|:--:|:--:|
-| ![Login Animation](https://github.com/mohamed-dev/assets/raw/main/login.gif) | ![Signup Animation](https://github.com/mohamed-dev/assets/raw/main/signup.gif) |
-
----
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/45159366/235320093-df8d2b25-caa6-43e1-8c26-0cae46a1ce8e.png" width="400" alt="auth-structure" style="border-radius:12px; box-shadow:0 0 12px #4fa3ff55;" />
-  <img src="https://user-images.githubusercontent.com/45159366/235320114-9f7c7b7d-f0a3-43f9-bc4f-282c5ddfc7ae.png" width="400" alt="auth-flow" style="border-radius:12px; box-shadow:0 0 12px #50d89055;" />
-</p>
-
----
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
 
 </div>
 
-## 🏗️ هيكلية المشروع (MVC Project Structure)
+---
+
+## 📖 نظرة عامة
+
+**E-Commerce Auth Framework** هو إطار عمل مصغر للتوثيق والتسجيل، مصمم خصيصاً ليكون نقطة انطلاق مثالية لمشاريع التجارة الإلكترونية. يجمع بين البساطة والقوة، مع هيكلة **MVC** نظيفة وقابلة للتوسع.
+
+### ✨ لماذا هذا المشروع مميز؟
+
+- 🎯 **بسيط وفعال**: صفحتان فقط (Login & Signup) لكن بكود احترافي
+- 🏗️ **هيكلة MVC نظيفة**: كل شيء في مكانه الصحيح
+- 🔒 **أمان عالي**: تشفير bcrypt و JWT tokens
+- 🚀 **جاهز للإنتاج**: يمكنك البناء عليه مباشرة
+- 📦 **خفيف الوزن**: لا تعقيدات، فقط الأساسيات القوية
+
+---
+
+## 🎬 معاينة حية
+
+<div align="center">
+
+| 🔑 تسجيل الدخول | 📝 إنشاء حساب |
+|:---:|:---:|
+| <img src="https://github.com/mohamed-dev/assets/raw/main/login.gif" width="350"/> | <img src="https://github.com/mohamed-dev/assets/raw/main/signup.gif" width="350"/> |
+
+</div>
+
+---
+
+## 🏗️ هيكلية المشروع
 
 ```
-E-commerce-auth/
-│
-├── 📂 src/
-│   ├── 📂 config/
-│   │   └── connect-mongo.js
-│   ├── 📂 controllers/
-│   │   └── auth.controller.js
-│   ├── 📂 models/
-│   │   └── user.model.js
-│   ├── 📂 routes/
-│   │   └── auth.routes.js
-│   └── app.js
-│
-├── .env
-├── package.json
-└── README.md
-```
-
----
-
-## 🌐 صفحات المشروع
-
-- **Signup** : إنشاء حساب جديد (الاسم، البريد، كلمة السر)
-- **Login** : تسجيل الدخول (البريد، كلمة السر)  
-  عند نجاح تسجيل الدخول ➜ يتم إرجاع **JWT Token** في الـ Response
-
----
-
-## 🧩 نقطة هامة للمطورين
-
-> 🛡️ **ملاحظة:**  
-> ملفات الكنترولرز `auth.controller.js` الخاصة بـ **Login** و **Signup** يتم العمل عليها في فروع منفصلة (Branches)  
-> **يجب عمل Merge للبرانشات الخاصة بكل من Login و Signup قبل النشر النهائي للمشروع!**
->
-> مثال:
-> - Branch: `feature/login-controller`
-> - Branch: `feature/signup-controller`
->
-> بعد الانتهاء من كل كنترولر يتم الدمج (Merge) إلى الفرع الرئيسي (`main`).
-
----
-
-## 🧬 نموذج المستخدم (User Model)
-
-```js
-import mongoose, { Schema, model } from "mongoose";
-
-const userSchema = new Schema({
-  name: { type: String, required: true, minlength: 3, maxlength: 25, trim: true },
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  password: { type: String, required: true, minlength: 6 }
-}, { timestamps: true });
-
-export default mongoose.models.User || model("User", userSchema);
+📦 E-commerce-auth
+┣ 📂 src
+┃ ┣ 📂 config
+┃ ┃ ┗ 📜 connect-mongo.js      # إعدادات الاتصال بقاعدة البيانات
+┃ ┣ 📂 controllers
+┃ ┃ ┗ 📜 auth.controller.js    # منطق الأعمال للتوثيق
+┃ ┣ 📂 models
+┃ ┃ ┗ 📜 user.model.js          # نموذج بيانات المستخدم
+┃ ┣ 📂 routes
+┃ ┃ ┗ 📜 auth.routes.js         # نقاط النهاية API
+┃ ┗ 📜 app.js                   # ملف التطبيق الرئيسي
+┣ 📜 .env                        # متغيرات البيئة
+┣ 📜 package.json
+┗ 📜 README.md
 ```
 
 ---
 
-## 🔗 الاتصال بقاعدة البيانات (MongoDB)
+## 🚀 البدء السريع
 
-```js
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+### المتطلبات الأساسية
 
-dotenv.config();
+- Node.js (الإصدار 14 أو أحدث)
+- MongoDB (محلي أو سحابي)
+- npm أو yarn
 
-export default function dbConnect() {
-  mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ Database Connected"))
-    .catch((err) => console.log("❌ Database Error:", err));
+### خطوات التثبيت
+
+```bash
+# 1. استنساخ المشروع
+git clone https://github.com/your-username/e-commerce-auth.git
+cd e-commerce-auth
+
+# 2. تثبيت الحزم
+npm install
+
+# 3. إعداد ملف البيئة
+cp .env.example .env
+# قم بتعديل .env بمعلومات قاعدة البيانات الخاصة بك
+
+# 4. تشغيل السيرفر
+npm run dev
+```
+
+🎉 **تهانينا!** السيرفر يعمل الآن على `http://localhost:3000`
+
+---
+
+## ⚙️ إعدادات البيئة
+
+قم بإنشاء ملف `.env` في المجلد الرئيسي:
+
+```env
+# MongoDB Connection
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ecommerce
+
+# JWT Secret Key
+JWT_SECRET=your_super_secret_key_here_2024
+
+# Server Port
+PORT=3000
+```
+
+> 💡 **نصيحة**: استخدم مفتاح JWT قوي ومعقد في بيئة الإنتاج!
+
+---
+
+## 📡 نقاط النهاية API
+
+### 1️⃣ إنشاء حساب جديد
+
+```http
+POST /signup
+Content-Type: application/json
+
+{
+  "name": "محمد أحمد",
+  "email": "mohamed@example.com",
+  "password": "SecurePass123"
+}
+```
+
+**الاستجابة الناجحة (201):**
+```json
+{
+  "message": "تم إنشاء الحساب بنجاح",
+  "user": {
+    "_id": "507f1f77bcf86cd799439011",
+    "name": "محمد أحمد",
+    "email": "mohamed@example.com"
+  }
+}
+```
+
+### 2️⃣ تسجيل الدخول
+
+```http
+POST /login
+Content-Type: application/json
+
+{
+  "email": "mohamed@example.com",
+  "password": "SecurePass123"
+}
+```
+
+**الاستجابة الناجحة (200):**
+```json
+{
+  "message": "تم تسجيل الدخول بنجاح",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
 
 ---
 
-## 🛣️ الراوتس (Routes)
+## 🔐 نموذج البيانات
 
-```js
-import express from "express";
-import { signup, login } from "../controllers/auth.controller.js";
+### User Schema
 
-const router = express.Router();
-
-router.post("/signup", signup);
-router.post("/login", login);
-
-export default router;
+```javascript
+{
+  name: {
+    type: String,
+    required: true,
+    minlength: 3,
+    maxlength: 25,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6
+  },
+  createdAt: Date,
+  updatedAt: Date
+}
 ```
 
 ---
 
-## 🧠 الكنترولرز (Controllers)
+## 🛡️ الأمان
 
-```js
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import userModel from "../models/user.model.js";
+المشروع يتضمن عدة طبقات أمان:
 
-export const signup = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-    if (await userModel.findOne({ email })) {
-      return res.status(409).json({ message: "البريد الإلكتروني مستخدم بالفعل" });
-    }
-    const hashPassword = await bcrypt.hash(password, 10);
-    const user = await userModel.create({ name, email, password: hashPassword });
-    res.status(201).json({ message: "تم إنشاء الحساب بنجاح", user });
-  } catch (e) {
-    res.status(500).json({ message: "خطأ داخلي في الخادم" });
-  }
-};
-
-export const login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await userModel.findOne({ email });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ message: "بيانات الدخول غير صحيحة" });
-    }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.status(200).json({ message: "تم تسجيل الدخول بنجاح", token });
-  } catch (e) {
-    res.status(500).json({ message: "خطأ داخلي في الخادم" });
-  }
-};
-```
+- ✅ **تشفير كلمات المرور**: باستخدام bcrypt مع salt rounds = 10
+- ✅ **JWT Tokens**: صالحة لمدة ساعة واحدة
+- ✅ **التحقق من البريد الفريد**: منع التسجيل المكرر
+- ✅ **Validation**: التحقق من صحة البيانات المدخلة
+- ✅ **Environment Variables**: حماية البيانات الحساسة
 
 ---
 
-## 🚀 ملف التطبيق الرئيسي (Main app.js)
-
-```js
-import express from "express";
-import dbConnect from "./config/connect-mongo.js";
-import router from "./routes/auth.routes.js";
-
-const app = express();
-app.use(express.json());
-dbConnect();
-
-app.use("/", router);
-
-app.listen(3000, () => console.log("🌐 Server running at: http://localhost:3000"));
-```
-
----
-
-## 🧩 إعدادات البيئة (Environment)
-
-أنشئ ملف `.env` وضع به:
-
-```env
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/test
-JWT_SECRET=SECRET_KEY
-```
-
----
-
-## ⚡️ تشغيل المشروع
-
-```bash
-# تثبيت الحزم
-npm install
-
-# تشغيل السيرفر
-npm run dev
-```
-
----
-
-## ✨ مزايا المشروع
-
-- هيكلية MVC منظمة وسهلة التوسعة
-- اتصال كامل بـ MongoDB
-- Hashing لكلمات السر باستخدام bcrypt
-- توثيق باستخدام JWT Token
-- صفحات بسيطة وسريعة
-- README متحرك وجذاب 🎨
-
----
-
-## 🌈 معاينة لونية جميلة وأيقونات مميزة
+## 🎨 المزايا الرئيسية
 
 <div align="center">
 
-<img src="https://github.com/mohamed-dev/assets/raw/main/dark-preview.png" width="45%" style="border-radius:16px;box-shadow:0 0 8px #4fa3ff88" />
-<img src="https://github.com/mohamed-dev/assets/raw/main/light-preview.png" width="45%" style="border-radius:16px;box-shadow:0 0 8px #50d89088" />
+| الميزة | الوصف |
+|:---:|:---|
+| 🎯 | **هيكلة MVC احترافية** - فصل واضح بين Layers |
+| 🔒 | **أمان متقدم** - تشفير وتوثيق قويين |
+| ⚡ | **سرعة عالية** - كود محسّن وخفيف |
+| 📦 | **سهل التوسع** - بنية قابلة للنمو |
+| 🌍 | **دعم متعدد اللغات** - جاهز للعربية والإنجليزية |
+| 🔄 | **RESTful API** - معايير صناعية |
 
 </div>
 
 ---
 
-## 🌟 شعار ASCII متحرك
+## 🌿 Git Workflow
 
+> ⚠️ **هام للمطورين**
+
+يتم تطوير كل كنترولر في فرع منفصل:
+
+```bash
+# فرع تسجيل الدخول
+git checkout -b feature/login-controller
+
+# فرع إنشاء الحساب
+git checkout -b feature/signup-controller
+
+# دمج التغييرات
+git checkout main
+git merge feature/login-controller
+git merge feature/signup-controller
 ```
-   ______      _                                      
-  / ____/___  (_)___  ____  ____ ___  ____ _____  ___ 
- / /   / __ \/ / __ \/ __ \/ __ `__ \/ __ `/ __ \/ _ \
-/ /___/ /_/ / / / / / /_/ / / / / / / /_/ / / / /  __/
-/____/\____/_/_/ /_/\____/_/ /_/ /_/\__,_/_/ /_/\___/ 
+
+---
+
+## 🧪 اختبار API
+
+يمكنك استخدام أدوات مثل:
+
+- **Postman**: [تحميل Postman](https://www.postman.com/)
+- **Thunder Client**: إضافة VS Code
+- **cURL**: من سطر الأوامر
+
+مثال باستخدام cURL:
+
+```bash
+# تسجيل حساب جديد
+curl -X POST http://localhost:3000/signup \
+  -H "Content-Type: application/json" \
+  -d '{"name":"أحمد محمد","email":"ahmed@test.com","password":"123456"}'
+
+# تسجيل الدخول
+curl -X POST http://localhost:3000/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"ahmed@test.com","password":"123456"}'
 ```
+
+---
+
+## 🔮 الخطط المستقبلية
+
+- [ ] إضافة التحقق من البريد الإلكتروني
+- [ ] نظام استعادة كلمة المرور
+- [ ] OAuth 2.0 (Google, Facebook)
+- [ ] Two-Factor Authentication (2FA)
+- [ ] Rate Limiting لحماية من الهجمات
+- [ ] Refresh Tokens للجلسات الطويلة
+- [ ] لوحة تحكم إدارية
+
+---
+
+## 📚 الموارد المفيدة
+
+- [Express.js Documentation](https://expressjs.com/)
+- [MongoDB Manual](https://docs.mongodb.com/)
+- [JWT Introduction](https://jwt.io/introduction)
+- [Bcrypt Best Practices](https://github.com/kelektiv/node.bcrypt.js)
+
+---
+
+## 🤝 المساهمة
+
+نرحب بمساهماتك! إليك كيفية المساعدة:
+
+1. Fork المشروع
+2. أنشئ فرع للميزة الجديدة (`git checkout -b feature/AmazingFeature`)
+3. Commit التغييرات (`git commit -m 'Add some AmazingFeature'`)
+4. Push للفرع (`git push origin feature/AmazingFeature`)
+5. افتح Pull Request
+
+---
+
+## 📄 الترخيص
+
+هذا المشروع مرخص تحت **MIT License** - راجع ملف [LICENSE](LICENSE) للتفاصيل.
+
+---
+
+## 👨‍💻 المطور
+
+<div align="center">
+
+**Mohamed**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohamed)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed@example.com)
+
+</div>
 
 ---
 
 <div align="center">
 
-💙 تم التصميم بواسطة Mohamed  
-🕓 الإصدار 1.0.0  
-🚀 جاهز للنشر على GitHub
+### 💙 صُنع بحب في مصر
+
+**الإصدار 1.0.0** | أكتوبر 2024
+
+⭐ إذا أعجبك المشروع، لا تنسَ إضافة نجمة!
+
+---
+
+```ascii
+   ___   ___ ___                                    
+  / _ | / _ \\ _ \___ __ __  __ _ __ _ _____ 
+ / __ |/ ___/ ___/ -_) \ / / _ `/ _` / -_)
+/_/ |_/_/  /_/   \___/_\_\ \_,_\__, \___| 
+                               |___/       
+```
+
+**نظام توثيق آمن وموثوق لمشروعك القادم** 🚀
 
 </div>
