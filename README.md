@@ -1,5 +1,13 @@
 <div align="center">
 
+<h1 style="color:#4fa3ff; background: linear-gradient(90deg,#4fa3ff,#50d890); border-radius:12px; padding:16px 0;">
+  🚀 Auth Framework Helper 🛠️  
+</h1>
+
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXpsY3l1NWhpMmV5MGZ0Y3l1bTlmb2trc3V3b2k5b3U4ZWFlNmpoeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ln7z2eWriiQAllfVcn/giphy.gif" width="200" alt="Framework Animation" />
+</p>
+
 # ⚡️ E-Commerce Auth Mini Framework
 
 > 🧩 **مساعد توثيق وتسجيل دخول يشبه الفريم ورك!**
@@ -21,6 +29,13 @@
 | 👤 <span style="color:#4fa3ff;">Login</span> | 📝 <span style="color:#50d890;">Signup</span> |
 |:--:|:--:|
 | ![Login Animation](https://github.com/mohamed-dev/assets/raw/main/login.gif) | ![Signup Animation](https://github.com/mohamed-dev/assets/raw/main/signup.gif) |
+
+---
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/45159366/235320093-df8d2b25-caa6-43e1-8c26-0cae46a1ce8e.png" width="400" alt="auth-structure" style="border-radius:12px; box-shadow:0 0 12px #4fa3ff55;" />
+  <img src="https://user-images.githubusercontent.com/45159366/235320114-9f7c7b7d-f0a3-43f9-bc4f-282c5ddfc7ae.png" width="400" alt="auth-flow" style="border-radius:12px; box-shadow:0 0 12px #50d89055;" />
+</p>
 
 ---
 
