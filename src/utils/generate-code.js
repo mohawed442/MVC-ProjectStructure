@@ -5,5 +5,4 @@ function generateCode() {
   }
   return code;
 }
-
-module.exports = generateCode
+export default generateCode

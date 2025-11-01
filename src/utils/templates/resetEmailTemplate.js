@@ -1,4 +1,4 @@
-const ResetEmailTemplate = ({
+export const ResetEmailTemplate = ({
   link = "#",
   title,
   message,
@@ -281,4 +281,3 @@ const ResetEmailTemplate = ({
 </html>`;
 };
 
-module.exports = { ResetEmailTemplate };

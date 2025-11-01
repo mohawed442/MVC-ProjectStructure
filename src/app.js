@@ -1,4 +1,4 @@
-import dbConnect from './config/connect-mongo.js';
+import { dbConnect } from './config/connect-mongo.js';
 import router from './routes/auth.routes.js';
 import express from'express'
 const app = express()

@@ -55,7 +55,7 @@ async function deleteAsset(publicId, mediaType = "image") {
   }
 }
 
-module.exports = {
+export default {
   getImageUrl,
   getVideoUrl,
   uploadAsset,

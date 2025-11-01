@@ -1,6 +1,6 @@
-const winston = require("winston");
-const path = require("path");
-const fs = require("fs");
+import winston from "winston";
+import path from "path";
+import fs from "fs";
 
 // Ensure logs directory exists
 const logDir = "logs";
@@ -108,4 +108,4 @@ if (isProduction) {
   );
 }
 
-module.exports = logger;
+export default logger;

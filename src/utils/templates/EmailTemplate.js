@@ -1,4 +1,4 @@
-const emailTemplate = ({
+export  const emailTemplate = ({
   title,
   message,
   securityNote,
@@ -62,4 +62,3 @@ const emailTemplate = ({
 </html>`;
 };
 
-module.exports = { emailTemplate };

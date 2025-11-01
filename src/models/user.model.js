@@ -1,13 +1,14 @@
-const mongoose = require("../config/connect-mongo").mongoose;
-const slugify = require("slugify");
-const user_schema = new mongoose.Schema(
+import { mongoose } from "../config/connect-mongo.js";
+import slugify from "slugify";
+
+const userSchema = new mongoose.Schema(
   {
     userName: {
       type: String,
       required: true,
       minlength: 2,
       unique: true,
-    },  
+    },
     fullName: {
       type: String,
       required: true,
@@ -35,19 +36,16 @@ const user_schema = new mongoose.Schema(
           "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-vector-600nw-1745180411.jpg",
       },
     },
-
     bio: {
       type: String,
       maxlength: 160,
       default: null,
     },
-
     gender: {
       type: String,
       enum: ["male", "female"],
       default: "male",
     },
-
     phoneNumber: String,
     date_of_birth: {
       type: Date,
@@ -74,11 +72,13 @@ const user_schema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-// slugify username
-user_schema.pre("save", function (next) {
+
+// 🔹 slugify username automatically before save
+userSchema.pre("save", function (next) {
   this.userName = slugify(this.userName, { lower: true });
   next();
 });
-const User = mongoose.model("User", user_schema);
 
-module.exports = User;
+const User = mongoose.model("User", userSchema);
+
+export default User;

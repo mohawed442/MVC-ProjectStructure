@@ -7,4 +7,4 @@ class ApiError extends Error {
     this.isOperational = true; // this mean error is predictable
   }
 }
-module.exports = ApiError;
+export default ApiError;

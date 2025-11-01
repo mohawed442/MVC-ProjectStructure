@@ -7,9 +7,10 @@ const otpPublicKey = fs.readFileSync(
   "utf-8"
 );
 const otpPrivateKey = fs.readFileSync(
-  "./keys/OTP/OTP_private_key.pem",
+  path.join(__dirname, "../keys/OTP/OTP_private_key.pem"),
   "utf-8"
 );
+
 const authPrivateKey = fs.readFileSync(
   path.join(__dirname, "../keys/auth/auth_private_key.pem"),
   "utf-8"

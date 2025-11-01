@@ -1,6 +1,6 @@
-const nodemailer = require("nodemailer");
-const logger = require("./logger");
-const ApiError = require("./api-error");
+import nodemailer from "nodemailer";
+import logger from "./logger.js";
+import ApiError from "./api-error.js";
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async ({ to, subject, html, text }) => {
+export const sendEmail = async ({ to, subject, html, text }) => {
   try {
     const info = await transporter.sendMail({
       from: `${process.env.MAIL_NAME}`,
@@ -29,4 +29,3 @@ const sendEmail = async ({ to, subject, html, text }) => {
   }
 };
 
-module.exports = { sendEmail };
