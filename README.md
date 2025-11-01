@@ -1,87 +1,53 @@
 <div align="center">
 
-# 🔐 E-Commerce Auth Framework
+# 📝 Signup System - الدليل الشامل
 
-### *نظام توثيق احترافي متكامل مع لوحة تحكم إدارية*
+### *نظام تسجيل متقدم مع OTP والتحقق من البريد الإلكتروني*
 
-<img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/main/images/handshake.gif" width="400" alt="Authentication System" />
+<img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" width="200" alt="Signup System" />
 
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)](https://jwt.io/)
-[![BCrypt](https://img.shields.io/badge/BCrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)](https://github.com/kelektiv/node.bcrypt.js)
-
----
+[![Branch](https://img.shields.io/badge/Branch-signup-success?style=for-the-badge)](https://github.com/your-repo/tree/signup)
+[![Status](https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge)](https://github.com/your-repo)
+[![Version](https://img.shields.io/badge/Version-2.0.0-orange?style=for-the-badge)](https://github.com/your-repo)
 
 </div>
 
-## 📖 نظرة عامة
+---
 
-**E-Commerce Auth Framework** هو نظام توثيق شامل ومتطور، مصمم خصيصاً لمشاريع التجارة الإلكترونية الاحترافية. يوفر نظام تسجيل دخول متقدم مع دعم الأدوار (User & Admin) وتأكيد البريد الإلكتروني.
+## 📖 جدول المحتويات
+
+- [نظرة عامة](#-نظرة-عامة)
+- [هيكلية المشروع الكاملة](#-هيكلية-المشروع-الكاملة)
+- [الكود الكامل مع الشرح](#-الكود-الكامل-مع-الشرح)
+- [آلية العمل التفصيلية](#-آلية-العمل-التفصيلية)
+- [دليل Git المفصل](#-دليل-git-المفصل)
+- [الملفات المطلوبة](#-الملفات-المطلوبة)
+- [اختبار النظام](#-اختبار-النظام)
+- [حل المشاكل](#-حل-المشاكل)
+
+---
+
+## 🎯 نظرة عامة
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="300" alt="Secure Authentication">
+<img src="https://user-images.githubusercontent.com/74038190/229223156-0cbdaba9-3128-4d8e-8719-b6b4cf741b67.gif" width="300" alt="Registration">
 </div>
 
-### ✨ لماذا هذا المشروع مميز؟
+### **نظام Signup متقدم يتضمن:**
 
-<table>
-<tr>
-<td width="50%">
-
-🎯 **نظام أدوار متقدم**
-- مستخدم عادي (User)
-- مسؤول (Admin)
-- JWT منفصل لكل دور
-
-</td>
-<td width="50%">
-
-🔒 **أمان متعدد الطبقات**
-- تشفير BCrypt قوي
-- تأكيد البريد الإلكتروني
-- حماية من الهجمات
-
-</td>
-</tr>
-<tr>
-<td>
-
-⚡ **بيانات شاملة**
-- الاسم والبريد
-- الجنس والعنوان
-- صورة الملف الشخصي
-- تواريخ تلقائية
-
-</td>
-<td>
-
-🏗️ **هيكلة MVC احترافية**
-- كود نظيف ومنظم
-- سهل التوسع والصيانة
-- توثيق كامل
-
-</td>
-</tr>
-</table>
+✅ **تسجيل شامل** - 8 حقول للبيانات الشخصية  
+✅ **تشفير متقدم** - BCrypt للكلمات + CryptoJS للهواتف  
+✅ **OTP System** - رمز تحقق مؤقت يرسل للبريد  
+✅ **Event-Driven** - نظام Events لإرسال البريد  
+✅ **Validation** - التحقق من البيانات قبل الحفظ  
+✅ **Error Handling** - معالجة احترافية للأخطاء  
+✅ **Logger** - تسجيل العمليات  
+✅ **JWT Tokens** - 3 أنواع مختلفة من Tokens  
+✅ **Secure Cookies** - حفظ آمن للـ Tokens
 
 ---
 
-## 🎬 معاينة النظام
-
-<div align="center">
-
-| 🔑 تسجيل الدخول | 📝 إنشاء حساب | 👤 الملف الشخصي |
-|:---:|:---:|:---:|
-| <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" width="150"/> | <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="150"/> |
-| تسجيل دخول آمن | إنشاء حساب سريع | إدارة البيانات |
-
-</div>
-
----
-
-## 🏗️ هيكلية المشروع الكاملة
+## 📁 هيكلية المشروع الكاملة
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="80" alt="Project Structure">
@@ -91,420 +57,43 @@
 📦 E-commerce-auth/
 ┃
 ┣ 📂 src/
-┃ ┣ 📂 config/
-┃ ┃ ┗ 📜 connect-mongo.js          # اتصال MongoDB مع معالجة الأخطاء
 ┃ ┃
 ┃ ┣ 📂 controllers/
-┃ ┃ ┗ 📜 auth.controller.js        # Login & Signup Controllers
-┃ ┃
-┃ ┣ 📂 models/
-┃ ┃ ┗ 📜 user.model.js              # نموذج المستخدم المتقدم
+┃ ┃ ┗ 📜 auth.controller.js        ⭐ الكنترولر الرئيسي
 ┃ ┃
 ┃ ┣ 📂 routes/
-┃ ┃ ┗ 📜 auth.routes.js             # مسارات API
+┃ ┃ ┗ 📜 auth.routes.js            🛣️ المسارات
 ┃ ┃
-┃ ┗ 📜 app.js                       # التطبيق الرئيسي
+┃ ┣ 📂 models/
+┃ ┃ ┣ 📜 user.model.js              👤 نموذج المستخدم
+┃ ┃ ┗ 📜 OTP.model.js               🔐 نموذج OTP
+┃ ┃
+┃ ┣ 📂 middlewares/
+┃ ┃ ┗ 📜 validate.middleware.js    ✔️ التحقق من البيانات
+┃ ┃
+┃ ┣ 📂 validators/
+┃ ┃ ┗ 📜 auth.validator.js         📋 قواعد التحقق
+┃ ┃
+┃ ┣ 📂 utils/
+┃ ┃ ┣ 📜 api-error.js               ❌ معالجة الأخطاء
+┃ ┃ ┣ 📜 api-response.js            ✅ تنسيق الاستجابات
+┃ ┃ ┣ 📜 logger.js                  📝 تسجيل العمليات
+┃ ┃ ┣ 📜 generate-code.js           🔢 توليد OTP
+┃ ┃ ┣ 📜 email-event.js             📧 نظام Events للبريد
+┃ ┃ ┗ 📜 jwt.js                     🎫 إدارة JWT Tokens
+┃ ┃
+┃ ┗ 📜 app.js                        🚀 التطبيق الرئيسي
 ┃
-┣ 📜 .env                            # المتغيرات البيئية
+┣ 📜 .env                             ⚙️ المتغيرات البيئية
 ┣ 📜 package.json
 ┗ 📜 README.md
 ```
 
 ---
 
-## 🚀 البدء السريع
+## 🎮 الكود الكامل مع الشرح
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" alt="Getting Started">
-</div>
-
-### 📋 المتطلبات الأساسية
-
-```bash
-Node.js >= 14.x
-MongoDB >= 4.x
-npm or yarn
-```
-
-### ⚙️ خطوات التثبيت
-
-```bash
-# 1️⃣ استنساخ المشروع
-git clone https://github.com/your-username/e-commerce-auth.git
-cd e-commerce-auth
-
-# 2️⃣ تثبيت الحزم
-npm install
-
-# 3️⃣ إعداد ملف البيئة
-cp .env.example .env
-
-# 4️⃣ تشغيل السيرفر
-npm run dev
-```
-
-<div align="center">
-
-🎉 **السيرفر يعمل الآن على** → `http://localhost:3000`
-
-</div>
-
----
-
-## 🔧 إعدادات البيئة (.env)
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="80" alt="Environment Setup">
-</div>
-
-```env
-# 🗄️ MongoDB Connection
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ecommerce
-
-# 🔐 JWT Secrets
-JWT_SECRET=your_user_secret_key_here
-JWT_SECRETADMIN=your_admin_secret_key_here
-
-# 🧂 BCrypt Salt Rounds
-SOLT=10
-
-# 🌐 Server Configuration
-PORT=3000
-```
-
----
-
-## 📡 نقاط النهاية API
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="80" alt="API Endpoints">
-</div>
-
-### 1️⃣ إنشاء حساب جديد (Signup)
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/6711/6711659.png" width="100" alt="Signup">
-</div>
-
-```http
-POST /signup
-Content-Type: application/json
-```
-
-**البيانات المطلوبة:**
-```json
-{
-  "name": "محمد أحمد",
-  "email": "mohamed@example.com",
-  "password": "SecurePass123",
-  "gender": "male",
-  "address": "القاهرة، مصر"
-}
-```
-
-**الاستجابة (201 Created):**
-```json
-{
-  "message": "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
-  "user": {
-    "_id": "507f1f77bcf86cd799439011",
-    "name": "محمد أحمد",
-    "email": "mohamed@example.com",
-    "gender": "male",
-    "address": "القاهرة، مصر",
-    "confirmEmail": false,
-    "role": "user",
-    "createdAt": "2024-10-31T10:30:00.000Z"
-  }
-}
-```
-
-**حالات الخطأ:**
-- `409 Conflict` - البريد مسجل مسبقاً
-- `500 Internal Server Error` - خطأ في الخادم
-
----
-
-### 2️⃣ تسجيل الدخول (Login)
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/6357/6357048.png" width="100" alt="Login">
-</div>
-
-```http
-POST /login
-Content-Type: application/json
-```
-
-**البيانات المطلوبة:**
-```json
-{
-  "email": "mohamed@example.com",
-  "password": "SecurePass123"
-}
-```
-
-**الاستجابة (200 OK):**
-```json
-{
-  "message": "done",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY..."
-}
-```
-
-**حالات الخطأ:**
-- `404 Not Found` - بيانات دخول خاطئة
-- `403 Forbidden` - البريد غير مؤكد
-- `401 Unauthorized` - دور المستخدم غير صالح
-- `500 Internal Server Error` - خطأ في الخادم
-
----
-
-## 🗃️ نموذج البيانات (User Schema)
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="100" alt="Database Schema">
-</div>
-
-```javascript
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Name is required'],
-    minlength: 3,
-    maxlength: 25,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required'],
-    unique: true,
-    lowercase: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: [true, 'Password is required'],
-    minlength: 6
-  },
-  gender: {
-    type: String,
-    enum: ['male', 'female'],
-    default: "male"
-  },
-  address: {
-    type: String
-  },
-  image: String,
-  confirmEmail: {
-    type: Boolean,
-    default: false
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: "user"
-  }
-}, { timestamps: true });
-```
-
----
-
-## 🔐 نظام الأمان المتقدم
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200" alt="Security System">
-</div>
-
-| الميزة | الوصف | التنفيذ |
-|:---:|:---|:---:|
-| 🔒 | **تشفير كلمات المرور** | BCrypt مع 10 Salt Rounds |
-| 🎫 | **JWT Tokens منفصلة** | User Token & Admin Token |
-| ✉️ | **تأكيد البريد** | منع الدخول قبل التأكيد |
-| 🛡️ | **Unique Email** | لا تكرار للحسابات |
-| ⏱️ | **Token Expiration** | صلاحية ساعة واحدة |
-| 🔍 | **Role-Based Auth** | صلاحيات حسب الدور |
-
----
-
-## 📝 أكواد المشروع الكاملة
-
-### 🗄️ **1. نموذج المستخدم** `user.model.js`
-
-```javascript
-import mongoose, { Schema, model } from "mongoose";
-
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Name is required'],
-    minlength: 3,
-    maxlength: 25,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required'],
-    unique: true,
-    lowercase: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: [true, 'Password is required'],
-    minlength: 6
-  },
-  gender: {
-    type: String,
-    enum: ['male', 'female'],
-    default: "male"
-  },
-  address: {
-    type: String,
-  },
-  image: String,
-  confirmEmail: {
-    type: Boolean,
-    default: false
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: "user"
-  }
-}, { timestamps: true });
-
-const userModel = mongoose.models.User || model("User", userSchema);
-export default userModel;
-```
-
----
-
-### ⚙️ **2. اتصال قاعدة البيانات** `connect-mongo.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" width="80" alt="MongoDB Connection">
-</div>
-
-```javascript
-import mongoose from 'mongoose';
-import * as dotenv from 'dotenv';
-import path from 'path';
-
-dotenv.config({ path: path.resolve('.env') });
-
-console.log({ path: path.resolve('.env') });
-
-const dbConnect = () => {
-  mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ Database Connected Successfully"))
-    .catch((err) => console.log("❌ Database Connection Error:", err));
-}
-
-export default dbConnect;
-```
-
----
-
-### 🎮 **3. الكنترولرز** `auth.controller.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920235.png" width="80" alt="Controllers">
-</div>
-
-```javascript
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import userModel from "../models/user.model.js";
-
-// 📝 Signup Controller
-export const signup = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    const checkUser = await userModel.findOne({ email });
-    if (checkUser) {
-      return res
-        .status(409)
-        .json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
-    }
-
-    const hashPassword = await bcrypt.hash(
-      password,
-      parseInt(process.env.SOLT)
-    );
-
-    const user = await userModel.create({
-      name,
-      email,
-      password: hashPassword,
-    });
-
-    return res.status(201).json({
-      message: "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
-      user,
-    });
-  } catch (error) {
-    console.error("Signup error:", error);
-    return res
-      .status(500)
-      .json({ message: "حدث خطأ داخلي في الخادم. حاول لاحقًا." });
-  }
-};
-
-// 🔑 Login Controller
-export const login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "in-valid login Data" });
-    }
-
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(404).json({ message: "in-valid login Data" });
-    }
-
-    if (!user.confirmEmail) {
-      return res.status(403).json({ 
-        message: "Please confirm your email before proceeding" 
-      });
-    }
-
-    let token;
-    switch (user.role) {
-      case "user":
-        token = jwt.sign(
-          { id: user._id },
-          process.env.JWT_SECRET,
-          { expiresIn: "1h" }
-        );
-        break;
-      case "admin":
-        token = jwt.sign(
-          { id: user._id },
-          process.env.JWT_SECRETADMIN,
-          { expiresIn: "1h" }
-        );
-        break;
-      default:
-        return res.status(401).json({ message: "login role invalid" });
-    }
-
-    return res.status(200).json({ message: "done", token });
-
-  } catch (error) {
-    console.error("Login error:", error);
-    return res.status(500).json({ message: 'Internal server error' });
-  }
-};
-```
-
----
-
-### 🛣️ **4. المسارات** `auth.routes.js`
+### **1️⃣ المسار (Route)** - `auth.routes.js`
 
 <div align="center">
 <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" width="80" alt="Routes">
@@ -512,572 +101,1535 @@ export const login = async (req, res) => {
 
 ```javascript
 import express from "express";
-import { signup, login } from "../controllers/auth.controller.js";
+import { validate } from "../middlewares/validate.middleware.js";
+import { signupSchema } from "../validators/auth.validator.js";
+import { signup } from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
-router.post("/login", login);
-router.post("/signup", signup);
+// 📝 مسار التسجيل مع Validation Middleware
+router.post("/signup", validate(signupSchema, "body"), signup);
 
 export default router;
 ```
 
+**📌 الشرح:**
+- `validate()` - Middleware للتحقق من البيانات قبل الوصول للكنترولر
+- `signupSchema` - مجموعة القواعد للتحقق (من Joi أو Yup)
+- `"body"` - التحقق من `req.body`
+
 ---
 
-### 🚀 **5. التطبيق الرئيسي** `app.js`
+### **2️⃣ الكنترولر (Controller)** - `auth.controller.js`
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" width="80" alt="Node.js App">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920235.png" width="80" alt="Controller">
 </div>
 
 ```javascript
-import dbConnect from './config/connect-mongo.js';
-import router from './routes/auth.routes.js';
-import express from 'express';
+import bcrypt from "bcryptjs";
+import CryptoJS from "crypto-js";
+import { emailEvent } from "../utils/email-event.js";
+import ApiError from "../utils/api-error.js";
+import ApiResponse from "../utils/api-response.js";
+import logger from "../utils/logger.js";
+import generateCode from "../utils/generate-code.js";
+import {
+  generateOTPToken,
+  generateAccessToken,
+  generateRefreshToken,
+  verifyOTPToken,
+} from "../utils/jwt.js";
+import User from "../models/user.model.js";
+import OTP from "../models/OTP.model.js";
 
-const app = express();
-const port = 3000;
+export const signup = async (req, res, next) => {
+  // ========================================
+  // 📥 الخطوة 1: استخراج البيانات من Request
+  // ========================================
+  const {
+    userName,      // اسم المستخدم الفريد
+    fullName,      // الاسم الكامل
+    email,         // البريد الإلكتروني
+    password,      // كلمة المرور
+    phoneNumber,   // رقم الهاتف
+    gender,        // الجنس
+    bio,           // نبذة تعريفية
+    DOB,           // تاريخ الميلاد (Date of Birth)
+  } = req.body;
 
-app.use(express.json());
-dbConnect();
+  // ========================================
+  // 🔍 الخطوة 2: التحقق من عدم وجود البريد مسبقاً
+  // ========================================
+  const checkUser = await User.findOne({ email });
+  if (checkUser) {
+    // إرجاع خطأ 409 Conflict
+    return next(new ApiError("This email is already registered", 409));
+  }
 
-app.use("/", router);
+  // ========================================
+  // 🔐 الخطوة 3: تشفير كلمة المرور
+  // ========================================
+  const hashPassword = await bcrypt.hash(
+    password,
+    parseInt(process.env.SALT) // عدد Salt Rounds من .env
+  );
 
-app.listen(port, () => console.log(`🚀 Server running at: http://localhost:${port}`));
+  // ========================================
+  // 🔒 الخطوة 4: تشفير رقم الهاتف
+  // ========================================
+  const encryptedPhone = CryptoJS.AES.encrypt(
+    phoneNumber,
+    process.env.ENCRYPT // مفتاح التشفير من .env
+  ).toString();
+
+  // ========================================
+  // 💾 الخطوة 5: إنشاء المستخدم في قاعدة البيانات
+  // ========================================
+  const user = await User.create({
+    userName,
+    fullName,
+    email,
+    password: hashPassword,        // كلمة المرور المشفرة
+    phoneNumber: encryptedPhone,   // الهاتف المشفر
+    gender,
+    bio,
+    date_of_birth: DOB,
+  });
+
+  // ========================================
+  // 🔢 الخطوة 6: توليد رمز OTP
+  // ========================================
+  const code = generateCode(); // مثال: 123456 (6 أرقام)
+  
+  // حفظ الـ OTP في قاعدة البيانات
+  await OTP.create({ 
+    userId: user._id, 
+    code 
+  });
+
+  // ========================================
+  // 📧 الخطوة 7: إرسال بريد التحقق
+  // ========================================
+  // استخدام Event Emitter لإرسال البريد بشكل غير متزامن
+  emailEvent.emit("sendConfirmEmail", { email, code });
+
+  // ========================================
+  // 🎫 الخطوة 8: إنشاء OTP Token
+  // ========================================
+  const token = generateOTPToken(String(user._id));
+
+  // ========================================
+  // 🍪 الخطوة 9: إعدادات الـ Cookie
+  // ========================================
+  const cookieOptions = {
+    httpOnly: true,     // لا يمكن الوصول له من JavaScript
+    secure: true,       // يعمل فقط على HTTPS
+    sameSite: "Strict", // حماية من CSRF attacks
+    maxAge: 5 * 60 * 1000, // 5 دقائق
+  };
+
+  // حفظ الـ Token في Cookie
+  res.cookie("OTP_verification_token", token, cookieOptions);
+
+  // ========================================
+  // ✅ الخطوة 10: إرجاع الاستجابة
+  // ========================================
+  return res.status(201).json(
+    new ApiResponse({
+      message: "The account has been created successfully. Please check your email for verification.",
+      status: "success",
+    })
+  );
+};
 ```
 
 ---
 
-## 🔄 استراتيجية العمل على المشروع (Git Workflow)
+## 🔐 آلية العمل التفصيلية
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="100" alt="Git Workflow">
+<img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" width="150" alt="Workflow">
 </div>
 
-> ⚠️ **ملاحظة مهمة جداً للمطورين**
-
-هذا المشروع يستخدم استراتيجية **Branch-Based Development** حيث:
-- **Branch Main** يحتوي على الهيكلة الأساسية فقط (بدون Controllers)
-- **Branch Login** يحتوي على Login Controller
-- **Branch Signup** يحتوي على Signup Controller
-
-### 📖 شرح الهيكلية الحالية
-
 ```
-📌 Branch: main
-├── ✅ Models (user.model.js)
-├── ✅ Routes (auth.routes.js) - فارغة
-├── ❌ Controllers - فارغة أو غير مكتملة
-└── ✅ Database Config
-
-📌 Branch: login
-└── ✅ Login Controller (مكتمل)
-
-📌 Branch: signup
-└── ✅ Signup Controller (مكتمل)
+┌─────────────────────────────────────────────────────────┐
+│  1. المستخدم يملأ نموذج التسجيل                        │
+│     ↓                                                    │
+│  2. Frontend يرسل POST Request لـ /signup              │
+│     ↓                                                    │
+│  3. Express Router يستقبل الطلب                        │
+│     ↓                                                    │
+│  4. Validation Middleware يتحقق من البيانات           │
+│     ├─❌ إذا فشل → Error 400 Bad Request              │
+│     └─✅ إذا نجح → ينتقل للكنترولر                   │
+│     ↓                                                    │
+│  5. Controller: التحقق من البريد في Database           │
+│     ├─❌ موجود → Error 409 Conflict                   │
+│     └─✅ غير موجود → المتابعة                         │
+│     ↓                                                    │
+│  6. تشفير كلمة المرور بـ BCrypt                        │
+│     ↓                                                    │
+│  7. تشفير رقم الهاتف بـ CryptoJS                       │
+│     ↓                                                    │
+│  8. حفظ المستخدم في MongoDB                            │
+│     ↓                                                    │
+│  9. توليد رمز OTP (6 أرقام عشوائية)                   │
+│     ↓                                                    │
+│  10. حفظ الـ OTP في جدول OTPs                          │
+│     ↓                                                    │
+│  11. Event Emitter يرسل البريد الإلكتروني             │
+│     ↓                                                    │
+│  12. إنشاء OTP JWT Token                               │
+│     ↓                                                    │
+│  13. حفظ الـ Token في Secure Cookie                    │
+│     ↓                                                    │
+│  14. إرجاع Response 201 Created                        │
+│     ↓                                                    │
+│  15. Frontend يعرض رسالة النجاح                        │
+│     ↓                                                    │
+│  16. Frontend ينتقل لصفحة إدخال OTP                   │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🎯 كيفية البدء في التطوير
+## 🛠️ الملفات المطلوبة
+
+### **3️⃣ User Model** - `user.model.js`
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" width="80" alt="Development Guide">
+<img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" width="80" alt="User Model">
 </div>
 
-### **الطريقة الموصى بها: إنشاء فرع Dev وجمع كل شيء**
+```javascript
+import mongoose, { Schema, model } from "mongoose";
 
-#### **الخطوة 1️⃣: استنساخ المشروع**
+const userSchema = new Schema({
+  userName: {
+    type: String,
+    required: [true, 'Username is required'],
+    unique: true,
+    minlength: 3,
+    maxlength: 30,
+    trim: true
+  },
+  fullName: {
+    type: String,
+    required: [true, 'Full name is required'],
+    minlength: 3,
+    maxlength: 50,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
+    lowercase: true,
+    trim: true,
+    match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address']
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: 6
+  },
+  phoneNumber: {
+    type: String,
+    required: [true, 'Phone number is required'],
+    // مشفر بـ CryptoJS
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female', 'other'],
+    default: 'male'
+  },
+  bio: {
+    type: String,
+    maxlength: 500,
+    default: ''
+  },
+  date_of_birth: {
+    type: Date,
+    required: false
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  profileImage: {
+    type: String,
+    default: null
+  }
+}, { 
+  timestamps: true // createdAt, updatedAt
+});
+
+const User = mongoose.models.User || model("User", userSchema);
+export default User;
+```
+
+---
+
+### **4️⃣ OTP Model** - `OTP.model.js`
+
+```javascript
+import mongoose, { Schema, model } from "mongoose";
+
+const otpSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  code: {
+    type: String,
+    required: true,
+    length: 6 // 6 أرقام
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    expires: 300 // ينتهي بعد 5 دقائق (300 ثانية)
+  }
+});
+
+// Index للبحث السريع
+otpSchema.index({ userId: 1, createdAt: -1 });
+
+const OTP = mongoose.models.OTP || model("OTP", otpSchema);
+export default OTP;
+```
+
+---
+
+### **5️⃣ Validation Middleware** - `validate.middleware.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" width="80" alt="Validation">
+</div>
+
+```javascript
+/**
+ * Middleware للتحقق من البيانات باستخدام Joi
+ * @param {Object} schema - Joi schema
+ * @param {String} source - مصدر البيانات (body, query, params)
+ */
+export const validate = (schema, source = 'body') => {
+  return (req, res, next) => {
+    // الحصول على البيانات من المصدر المحدد
+    const dataToValidate = req[source];
+
+    // التحقق من البيانات
+    const { error, value } = schema.validate(dataToValidate, {
+      abortEarly: false, // إرجاع جميع الأخطاء وليس الأول فقط
+      stripUnknown: true // حذف الحقول غير المعرفة
+    });
+
+    if (error) {
+      // تنسيق رسائل الأخطاء
+      const errors = error.details.map(err => ({
+        field: err.path.join('.'),
+        message: err.message
+      }));
+
+      return res.status(400).json({
+        status: 'error',
+        message: 'Validation failed',
+        errors
+      });
+    }
+
+    // استبدال البيانات بالقيم المعدلة من Joi
+    req[source] = value;
+    next();
+  };
+};
+```
+
+---
+
+### **6️⃣ Signup Validator** - `auth.validator.js`
+
+```javascript
+import Joi from 'joi';
+
+export const signupSchema = Joi.object({
+  userName: Joi.string()
+    .min(3)
+    .max(30)
+    .pattern(/^[a-zA-Z0-9_]+$/) // فقط حروف وأرقام و_
+    .required()
+    .messages({
+      'string.min': 'Username must be at least 3 characters',
+      'string.max': 'Username cannot exceed 30 characters',
+      'string.pattern.base': 'Username can only contain letters, numbers, and underscores',
+      'any.required': 'Username is required'
+    }),
+
+  fullName: Joi.string()
+    .min(3)
+    .max(50)
+    .required()
+    .messages({
+      'string.min': 'Full name must be at least 3 characters',
+      'any.required': 'Full name is required'
+    }),
+
+  email: Joi.string()
+    .email()
+    .required()
+    .messages({
+      'string.email': 'Please enter a valid email address',
+      'any.required': 'Email is required'
+    }),
+
+  password: Joi.string()
+    .min(6)
+    .max(100)
+    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/) // حرف صغير + كبير + رقم
+    .required()
+    .messages({
+      'string.min': 'Password must be at least 6 characters',
+      'string.pattern.base': 'Password must contain uppercase, lowercase, and number',
+      'any.required': 'Password is required'
+    }),
+
+  phoneNumber: Joi.string()
+    .pattern(/^[0-9]{10,15}$/) // 10-15 رقم
+    .required()
+    .messages({
+      'string.pattern.base': 'Please enter a valid phone number',
+      'any.required': 'Phone number is required'
+    }),
+
+  gender: Joi.string()
+    .valid('male', 'female', 'other')
+    .default('male'),
+
+  bio: Joi.string()
+    .max(500)
+    .allow('')
+    .default(''),
+
+  DOB: Joi.date()
+    .max('now') // لا يمكن أن يكون في المستقبل
+    .optional()
+    .messages({
+      'date.max': 'Date of birth cannot be in the future'
+    })
+});
+```
+
+---
+
+### **7️⃣ API Error Class** - `api-error.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920233.png" width="80" alt="Error Handling">
+</div>
+
+```javascript
+/**
+ * Custom Error Class للأخطاء في API
+ */
+class ApiError extends Error {
+  constructor(message, statusCode = 500) {
+    super(message);
+    this.statusCode = statusCode;
+    this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+    this.isOperational = true; // أخطاء متوقعة
+
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+export default ApiError;
+```
+
+**📌 الاستخدام:**
+```javascript
+// مثال 1: خطأ 404
+throw new ApiError("User not found", 404);
+
+// مثال 2: خطأ 409
+return next(new ApiError("Email already exists", 409));
+
+// مثال 3: خطأ 401
+throw new ApiError("Unauthorized access", 401);
+```
+
+---
+
+### **8️⃣ API Response Class** - `api-response.js`
+
+```javascript
+/**
+ * Class موحدة لتنسيق الاستجابات
+ */
+class ApiResponse {
+  constructor({ 
+    message, 
+    status = 'success', 
+    data = null, 
+    meta = null 
+  }) {
+    this.status = status;
+    this.message = message;
+    
+    if (data !== null) {
+      this.data = data;
+    }
+    
+    if (meta !== null) {
+      this.meta = meta;
+    }
+  }
+}
+
+export default ApiResponse;
+```
+
+**📌 الاستخدام:**
+```javascript
+// مثال 1: استجابة بسيطة
+return res.json(new ApiResponse({
+  message: "Success",
+  status: "success"
+}));
+
+// مثال 2: استجابة مع بيانات
+return res.json(new ApiResponse({
+  message: "User found",
+  data: { user },
+  meta: { total: 1 }
+}));
+```
+
+---
+
+### **9️⃣ Logger** - `logger.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920299.png" width="80" alt="Logger">
+</div>
+
+```javascript
+import winston from 'winston';
+import path from 'path';
+
+// إنشاء مجلد logs إذا لم يكن موجوداً
+const logsDir = path.join(process.cwd(), 'logs');
+
+const logger = winston.createLogger({
+  level: process.env.LOG_LEVEL || 'info',
+  format: winston.format.combine(
+    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    winston.format.errors({ stack: true }),
+    winston.format.splat(),
+    winston.format.json()
+  ),
+  defaultMeta: { service: 'auth-service' },
+  transports: [
+    // كتابة الأخطاء في error.log
+    new winston.transports.File({ 
+      filename: path.join(logsDir, 'error.log'), 
+      level: 'error' 
+    }),
+    // كتابة كل شيء في combined.log
+    new winston.transports.File({ 
+      filename: path.join(logsDir, 'combined.log') 
+    }),
+  ],
+});
+
+// في التطوير، اطبع على Console
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize(),
+      winston.format.simple()
+    )
+  }));
+}
+
+export default logger;
+```
+
+**📌 الاستخدام:**
+```javascript
+import logger from '../utils/logger.js';
+
+// معلومات عامة
+logger.info('User signup attempt', { email: user.email });
+
+// تحذير
+logger.warn('Suspicious activity detected', { ip: req.ip });
+
+// خطأ
+logger.error('Database error', { error: err.message, stack: err.stack });
+```
+
+---
+
+### **🔟 Generate OTP Code** - `generate-code.js`
+
+```javascript
+import crypto from 'crypto';
+
+/**
+ * توليد رمز OTP عشوائي من 6 أرقام
+ * @returns {String} - رمز مكون من 6 أرقام
+ */
+const generateCode = () => {
+  // توليد رقم عشوائي بين 100000 و 999999
+  return crypto.randomInt(100000, 999999).toString();
+};
+
+export default generateCode;
+
+// مثال آخر: توليد OTP أبجدي رقمي
+export const generateAlphanumericOTP = (length = 6) => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let otp = '';
+  
+  for (let i = 0; i < length; i++) {
+    otp += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  
+  return otp;
+};
+```
+
+---
+
+### **1️⃣1️⃣ Email Event System** - `email-event.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="80" alt="Email">
+</div>
+
+```javascript
+import { EventEmitter } from 'events';
+import nodemailer from 'nodemailer';
+import logger from './logger.js';
+
+// إنشاء Event Emitter
+export const emailEvent = new EventEmitter();
+
+// إعداد Nodemailer Transporter
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST, // مثال: smtp.gmail.com
+  port: process.env.EMAIL_PORT, // 587 أو 465
+  secure: process.env.EMAIL_PORT === '465', // true للـ 465
+  auth: {
+    user: process.env.EMAIL_USER, // بريدك
+    pass: process.env.EMAIL_PASS  // كلمة المرور أو App Password
+  }
+});
+
+/**
+ * Event Listener لإرسال بريد التحقق
+ */
+emailEvent.on('sendConfirmEmail', async ({ email, code }) => {
+  try {
+    const mailOptions = {
+      from: `"${process.env.APP_NAME}" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: 'تأكيد البريد الإلكتروني - Email Verification',
+      html: `
+        <!DOCTYPE html>
+        <html dir="rtl" lang="ar">
+        <head>
+          <meta charset="UTF-8">
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              padding: 20px;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              background: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .header {
+              text-align: center;
+              color: #4CAF50;
+              margin-bottom: 30px;
+            }
+            .code {
+              background: #f9f9f9;
+              border: 2px dashed #4CAF50;
+              padding: 20px;
+              text-align: center;
+              font-size: 32px;
+              font-weight: bold;
+              letter-spacing: 10px;
+              color: #333;
+              margin: 30px 0;
+            }
+            .footer {
+              text-align: center;
+              color: #666;
+              font-size: 14px;
+              margin-top: 30px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>🎉 مرحباً بك!</h1>
+              <p>شكراً لتسجيلك في منصتنا</p>
+            </div>
+            
+            <p>يرجى استخدام الرمز التالي لتأكيد بريدك الإلكتروني:</p>
+            
+            <div class="code">${code}</div>
+            
+            <p><strong>⏱️ ملاحظة:</strong> هذا الرمز صالح لمدة 5 دقائق فقط.</p>
+            
+            <p>إذا لم تقم بالتسجيل، يرجى تجاهل هذا البريد.</p>
+            
+            <div class="footer">
+              <p>© 2024 ${process.env.APP_NAME}. جميع الحقوق محفوظة.</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    logger.info('Verification email sent successfully', { email });
+    
+  } catch (error) {
+    logger.error('Failed to send verification email', { 
+      email, 
+      error: error.message 
+    });
+  }
+});
+
+// Event للبريد الترحيبي بعد التأكيد
+emailEvent.on('sendWelcomeEmail', async ({ email, userName }) => {
+  try {
+    await transporter.sendMail({
+      from: `"${process.env.APP_NAME}" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: 'مرحباً بك في منصتنا!',
+      html: `
+        <h1>مرحباً ${userName}! 👋</h1>
+        <p>تم تأكيد حسابك بنجاح.</p>
+        <p>يمكنك الآن الاستمتاع بجميع ميزات المنصة.</p>
+      `
+    });
+    
+    logger.info('Welcome email sent', { email });
+  } catch (error) {
+    logger.error('Failed to send welcome email', { email, error: error.message });
+  }
+});
+```
+
+---
+
+### **1️⃣2️⃣ JWT Utils** - `jwt.js`
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" width="80" alt="JWT">
+</div>
+
+```javascript
+import jwt from 'jsonwebtoken';
+
+/**
+ * إنشاء OTP Token (صلاحية 5 دقائق)
+ * يستخدم للتحقق من البريد الإلكتروني
+ */
+export const generateOTPToken = (userId) => {
+  return jwt.sign(
+    { userId, type: 'otp' },
+    process.env.JWT_OTP_SECRET,
+    { expiresIn: '5m' } // 5 دقائق
+  );
+};
+
+/**
+ * إنشاء Access Token (صلاحية ساعة)
+ * يستخدم للوصول للـ API
+ */
+export const generateAccessToken = (userId, role = 'user') => {
+  return jwt.sign(
+    { userId, role, type: 'access' },
+    process.env.JWT_ACCESS_SECRET,
+    { expiresIn: '1h' } // ساعة واحدة
+  );
+};
+
+/**
+ * إنشاء Refresh Token (صلاحية 30 يوم)
+ * يستخدم لتجديد الـ Access Token
+ */
+export const generateRefreshToken = (userId) => {
+  return jwt.sign(
+    { userId, type: 'refresh' },
+    process.env.JWT_REFRESH_SECRET,
+    { expiresIn: '30d' } // 30 يوم
+  );
+};
+
+/**
+ * التحقق من OTP Token
+ */
+export const verifyOTPToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_OTP_SECRET);
+    
+    if (decoded.type !== 'otp') {
+      throw new Error('Invalid token type');
+    }
+    
+    return decoded;
+  } catch (error) {
+    throw new Error('Invalid or expired OTP token');
+  }
+};
+
+/**
+ * التحقق من Access Token
+ */
+export const verifyAccessToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+    
+    if (decoded.type !== 'access') {
+      throw new Error('Invalid token type');
+    }
+    
+    return decoded;
+  } catch (error) {
+    throw new Error('Invalid or expired access token');
+  }
+};
+
+/**
+ * التحقق من Refresh Token
+ */
+export const verifyRefreshToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+    
+    if (decoded.type !== 'refresh') {
+      throw new Error('Invalid token type');
+    }
+    
+    return decoded;
+  } catch (error) {
+    throw new Error('Invalid or expired refresh token');
+  }
+};
+```
+
+---
+
+## ⚙️ Environment Variables
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/3588/3588315.png" width="100" alt="Environment">
+</div>
+
+### **ملف `.env` الكامل:**
+
+```env
+# ========================================
+# 🗄️ MongoDB Configuration
+# ========================================
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/ecommerce?retryWrites=true&w=majority
+
+# ========================================
+# 🔐 Encryption & Hashing
+# ========================================
+SALT=10
+ENCRYPT=your-crypto-secret-key-here-32chars
+
+# ========================================
+# 🎫 JWT Secrets (يجب أن تكون مختلفة!)
+# ========================================
+JWT_OTP_SECRET=your-otp-secret-key-minimum-32-characters
+JWT_ACCESS_SECRET=your-access-secret-key-minimum-32-characters
+JWT_REFRESH_SECRET=your-refresh-secret-key-minimum-32-characters
+
+# ========================================
+# 📧 Email Configuration (Gmail Example)
+# ========================================
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-specific-password
+
+# ========================================
+# 🌐 Application Settings
+# ========================================
+APP_NAME=E-Commerce Platform
+NODE_ENV=development
+PORT=3000
+
+# ========================================
+# 📝 Logger Settings
+# ========================================
+LOG_LEVEL=info
+```
+
+**⚠️ ملاحظات مهمة:**
+
+1. **SALT**: رقم بين 10-12 (10 موصى به للإنتاج)
+2. **ENCRYPT**: مفتاح 32 حرف للـ AES encryption
+3. **JWT Secrets**: يجب أن تكون مختلفة وقوية (32+ حرف)
+4. **EMAIL_PASS**: في Gmail استخدم App Password وليس كلمة المرور العادية
+
+---
+
+## 🔄 دليل Git المفصل
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="100" alt="Git Guide">
+</div>
+
+### **📋 السيناريو 1: البدء من الصفر**
 
 ```bash
-# استنساخ المشروع
-git clone https://github.com/your-username/e-commerce-auth.git
+# ========================================
+# 1️⃣ إنشاء المستودع وإعداده
+# ========================================
+
+# إنشاء مجلد المشروع
+mkdir e-commerce-auth
 cd e-commerce-auth
 
-# التأكد من أنك على فرع main
+# تهيئة Git
+git init
+echo "# E-Commerce Auth System" >> README.md
+git add README.md
+git commit -m "Initial commit"
+
+# ربط بـ GitHub
+git remote add origin https://github.com/your-username/e-commerce-auth.git
+git branch -M main
+git push -u origin main
+
+# ========================================
+# 2️⃣ إنشاء الهيكل الأساسي على Main
+# ========================================
+
+# إنشاء هيكل المجلدات
+mkdir -p src/{controllers,routes,models,middlewares,validators,utils}
+
+# إنشاء ملفات فارغة
+touch src/controllers/auth.controller.js
+touch src/routes/auth.routes.js
+touch src/models/{user.model.js,OTP.model.js}
+touch src/middlewares/validate.middleware.js
+touch src/validators/auth.validator.js
+touch src/utils/{api-error.js,api-response.js,logger.js,generate-code.js,email-event.js,jwt.js}
+touch src/app.js
+touch .env.example
+touch .gitignore
+
+# كتابة .gitignore
+cat > .gitignore << EOF
+node_modules/
+.env
+logs/
+*.log
+.DS_Store
+EOF
+
+# إنشاء package.json
+npm init -y
+
+# تثبيت الحزم الأساسية
+npm install express mongoose dotenv
+npm install bcryptjs crypto-js jsonwebtoken
+npm install joi
+npm install nodemailer
+npm install winston
+
+# Commit الهيكل الأساسي
+git add .
+git commit -m "Add project structure and dependencies"
+git push origin main
+
+# ========================================
+# 3️⃣ إنشاء فرع Signup
+# ========================================
+
+# إنشاء والانتقال لفرع signup
+git checkout -b signup
+
+# الآن اكتب كل الكود في الملفات
+# ثم:
+
+git add .
+git commit -m "Add complete signup functionality with OTP"
+git push -u origin signup
+
+# ========================================
+# 4️⃣ العودة لـ Main
+# ========================================
+
 git checkout main
 ```
 
-#### **الخطوة 2️⃣: إنشاء فرع Dev للتطوير**
+---
+
+### **📋 السيناريو 2: استنساخ المشروع والعمل عليه**
 
 ```bash
+# ========================================
+# 1️⃣ استنساخ المشروع
+# ========================================
+
+git clone https://github.com/your-username/e-commerce-auth.git
+cd e-commerce-auth
+
+# عرض جميع الفروع
+git branch -a
+# Output:
+# * main
+#   remotes/origin/HEAD -> origin/main
+#   remotes/origin/main
+#   remotes/origin/signup
+#   remotes/origin/login
+
+# ========================================
+# 2️⃣ إنشاء فرع Dev لجمع كل شيء
+# ========================================
+
 # إنشاء فرع dev من main
 git checkout -b dev
 
-# التأكد من الفرع الحالي
-git branch
-# * dev
-#   main
-```
-
-#### **الخطوة 3️⃣: جلب الـ Branches الأخرى**
-
-```bash
-# جلب جميع الفروع من الريبو
+# جلب آخر التحديثات
 git fetch --all
 
-# عرض جميع الفروع المتاحة
-git branch -a
-# * dev
-#   main
-#   remotes/origin/login
-#   remotes/origin/signup
-```
+# ========================================
+# 3️⃣ دمج فرع Signup
+# ========================================
 
-#### **الخطوة 4️⃣: دمج Login Controller**
+# دمج signup في dev
+git merge origin/signup -m "Merge signup functionality"
 
-```bash
-# دمج branch login في dev
-git merge origin/login
-
-# في حالة حدوث تعارضات (Conflicts):
+# إذا حدثت تعارضات:
 # 1. افتح الملفات المتعارضة
-# 2. احتفظ بالكود المطلوب
-# 3. احذف علامات Git (<<<<, ====, >>>>)
+# 2. ابحث عن العلامات:
+<<<<<<< HEAD
+// كود من dev
+=======
+// كود من signup
+>>>>>>> origin/signup
+
+# 3. احتفظ بما تريد واحذف العلامات
 # 4. ثم:
 git add .
-git commit -m "Merge login controller into dev"
-```
+git commit -m "Resolve merge conflicts"
 
-#### **الخطوة 5️⃣: دمج Signup Controller**
+# ========================================
+# 4️⃣ دمج فرع Login (إذا كان موجوداً)
+# ========================================
 
-```bash
-# دمج branch signup في dev
-git merge origin/signup
+git merge origin/login -m "Merge login functionality"
 
 # معالجة التعارضات إن وجدت
-git add .
-git commit -m "Merge signup controller into dev"
-```
 
-#### **الخطوة 6️⃣: التحقق من الكود**
+# ========================================
+# 5️⃣ تثبيت الحزم واختبار
+# ========================================
 
-```bash
-# التأكد من وجود جميع الملفات
-ls src/controllers/
-# يجب أن ترى: auth.controller.js (بالكود الكامل)
-
-# فحص محتوى الملف
-cat src/controllers/auth.controller.js
-```
-
-#### **الخطوة 7️⃣: اختبار المشروع**
-
-```bash
-# تثبيت الحزم
 npm install
+cp .env.example .env
+# عدل .env بمعلوماتك
 
 # تشغيل المشروع
 npm run dev
 
-# يجب أن ترى:
-# ✅ Database Connected Successfully
-# 🚀 Server running at: http://localhost:3000
+# ========================================
+# 6️⃣ بعد التأكد من عمل كل شيء
+# ========================================
+
+# دمج dev في main
+git checkout main
+git merge dev -m "Merge complete auth system"
+
+# رفع التحديثات
+git push origin main
+
+# رفع فرع dev أيضاً
+git checkout dev
+git push -u origin dev
 ```
 
 ---
 
-## 🔀 سيناريوهات العمل المختلفة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920299.png" width="80" alt="Work Scenarios">
-</div>
-
-### **السيناريو 1: العمل على Dev ثم Push للـ Main**
+### **📋 السيناريو 3: إضافة ميزة جديدة**
 
 ```bash
-# بعد إتمام التطوير والاختبار على dev
+# ========================================
+# مثال: إضافة ميزة تأكيد OTP
+# ========================================
+
+# ابدأ من dev
 git checkout dev
-git add .
-git commit -m "Complete authentication system"
+git pull origin dev
 
-# الرجوع لـ main ودمج dev
-git checkout main
-git merge dev
+# إنشاء فرع للميزة الجديدة
+git checkout -b feature/verify-otp
 
-# رفع التغييرات
-git push origin main
-```
-
-### **السيناريو 2: إنشاء فرع جديد لميزة إضافية**
-
-```bash
-# إنشاء فرع من dev
-git checkout dev
-git checkout -b feature/email-verification
+# اكتب الكود الجديد
+# مثال: إضافة verifyOTP controller
 
 # بعد الانتهاء
+git add .
+git commit -m "Add OTP verification endpoint"
+git push -u origin feature/verify-otp
+
+# دمج في dev
 git checkout dev
-git merge feature/email-verification
-```
+git merge feature/verify-otp
+git push origin dev
 
-### **السيناريو 3: دمج مباشر في Main (للمشاريع الصغيرة)**
-
-```bash
-# الانتقال لـ main
+# إذا كل شيء يعمل، دمج في main
 git checkout main
-
-# دمج login
-git merge origin/login -m "Add login controller"
-
-# دمج signup
-git merge origin/signup -m "Add signup controller"
-
-# رفع التغييرات
+git merge dev
 git push origin main
 ```
 
 ---
 
-## 🛠️ حل المشاكل الشائعة
+### **🛠️ أوامر Git المفيدة**
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920233.png" width="80" alt="Troubleshooting">
+
+| الأمر | الوصف | مثال |
+|:------|:------|:-----|
+| `git status` | عرض حالة الملفات | `git status` |
+| `git log --oneline` | عرض سجل الـ Commits | `git log --oneline --graph` |
+| `git diff` | عرض التغييرات | `git diff HEAD` |
+| `git stash` | حفظ التغييرات مؤقتاً | `git stash save "WIP"` |
+| `git stash pop` | استرجاع التغييرات | `git stash pop` |
+| `git reset` | التراجع عن Commits | `git reset --soft HEAD~1` |
+| `git revert` | عكس Commit معين | `git revert abc123` |
+| `git cherry-pick` | نسخ Commit محدد | `git cherry-pick def456` |
+| `git tag` | إنشاء Tag للإصدار | `git tag v1.0.0` |
+
 </div>
 
-### **مشكلة 1: Merge Conflicts**
+---
+
+## 🧪 اختبار النظام الكامل
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" width="100" alt="Testing">
+</div>
+
+### **1️⃣ اختبار Signup**
 
 ```bash
-# عند ظهور:
-# CONFLICT (content): Merge conflict in src/controllers/auth.controller.js
-
-# الحل:
-# 1. افتح الملف المتعارض
-# 2. ابحث عن:
-<<<<<<< HEAD
-// كود من الفرع الحالي
-=======
-// كود من الفرع المدمج
->>>>>>> origin/login
-
-# 3. احذف العلامات واحتفظ بالكود المطلوب
-# 4. احفظ الملف
-git add src/controllers/auth.controller.js
-git commit -m "Resolve merge conflicts"
-```
-
-### **مشكلة 2: الفروع غير ظاهرة**
-
-```bash
-# جلب جميع الفروع
-git fetch --all
-
-# عرض الفروع البعيدة
-git branch -r
-
-# تتبع فرع بعيد
-git checkout --track origin/login
-```
-
-### **مشكلة 3: الرجوع عن Merge خاطئ**
-
-```bash
-# التراجع عن آخر merge
-git reset --hard HEAD~1
-
-# أو التراجع لنقطة محددة
-git reflog
-git reset --hard HEAD@{2}
-```
-
----
-
-## 📋 Checklist قبل الـ Merge
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" width="80" alt="Checklist">
-</div>
-
-قبل دمج أي فرع، تأكد من:
-
-- [ ] ✅ جلب آخر التحديثات (`git fetch --all`)
-- [ ] ✅ أنت على الفرع الصحيح (`git branch`)
-- [ ] ✅ لا يوجد تغييرات غير محفوظة (`git status`)
-- [ ] ✅ اختبار الكود بعد الدمج
-- [ ] ✅ حل جميع التعارضات
-- [ ] ✅ تأكيد الـ Commit بوصف واضح
-
----
-
-## 🎬 مثال عملي كامل
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2620/2620521.png" width="80" alt="Example">
-</div>
-
-### **من البداية للنهاية:**
-
-```bash
-# 1️⃣ استنساخ المشروع
-git clone https://github.com/mohamed-dev/e-commerce-auth.git
-cd e-commerce-auth
-
-# 2️⃣ إنشاء فرع dev
-git checkout -b dev
-echo "✅ Created dev branch"
-
-# 3️⃣ جلب الفروع
-git fetch --all
-echo "✅ Fetched all branches"
-
-# 4️⃣ دمج login
-git merge origin/login --no-ff -m "Merge login controller"
-echo "✅ Merged login controller"
-
-# 5️⃣ دمج signup
-git merge origin/signup --no-ff -m "Merge signup controller"
-echo "✅ Merged signup controller"
-
-# 6️⃣ التحقق من الملفات
-ls -la src/controllers/
-cat src/controllers/auth.controller.js
-
-# 7️⃣ تثبيت وتشغيل
-npm install
-cp .env.example .env
-# عدل ملف .env بمعلوماتك
-npm run dev
-
-# 8️⃣ اختبار API
-curl -X POST http://localhost:3000/signup \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test User","email":"test@test.com","password":"123456"}'
-
-# 9️⃣ إذا كل شيء يعمل، ادمج في main
-git checkout main
-git merge dev --no-ff -m "Complete authentication system"
-git push origin main
-
-echo "🎉 Done! Project is ready!"
-```
-
----
-
-## 📊 رسم توضيحي لـ Git Flow
-
-```
-                    main (الأساسيات فقط)
-                     |
-                     |
-        ┌────────────┴────────────┐
-        |                         |
-    origin/login            origin/signup
-    (Login Controller)      (Signup Controller)
-        |                         |
-        |                         |
-        └────────────┬────────────┘
-                     |
-                     ↓
-                    dev
-            (كل شيء مدمج هنا)
-                     |
-                     ↓
-            Test & Development
-                     |
-                     ↓
-                    main
-            (النسخة النهائية)
-```
-
----
-
-## 💡 نصائح مهمة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" width="80" alt="Tips">
-</div>
-
-1. **🔒 لا تعمل مباشرة على Main**
-   - دائماً اعمل على `dev` أو فرع Feature
-   - Main فقط للنسخ المستقرة
-
-2. **💾 اعمل Commit بانتظام**
-   ```bash
-   git add .
-   git commit -m "وصف واضح للتغييرات"
-   ```
-
-3. **🧪 اختبر قبل الـ Merge**
-   ```bash
-   npm test  # إذا كان لديك tests
-   npm run dev  # تأكد أن كل شيء يعمل
-   ```
-
-4. **📝 استخدم أوصاف Commit واضحة**
-   ```bash
-   ✅ Good: "Add login validation and error handling"
-   ❌ Bad: "update"
-   ```
-
-5. **🔄 اسحب التحديثات دائماً**
-   ```bash
-   git pull origin dev  # قبل البدء في العمل
-   ```
-
----
-
-## 🎓 أوامر Git المفيدة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2620/2620522.png" width="80" alt="Git Commands">
-</div>
-
-| الأمر | الوصف |
-|:------|:------|
-| `git status` | عرض حالة الملفات |
-| `git branch` | عرض الفروع المحلية |
-| `git branch -a` | عرض كل الفروع (محلي + بعيد) |
-| `git fetch --all` | جلب جميع التحديثات |
-| `git merge <branch>` | دمج فرع |
-| `git merge --abort` | إلغاء الدمج |
-| `git log --oneline` | عرض سجل الـ Commits |
-| `git checkout <branch>` | الانتقال لفرع |
-| `git checkout -b <branch>` | إنشاء فرع جديد |
-| `git pull origin <branch>` | سحب تحديثات فرع |
-| `git push origin <branch>` | رفع فرع |
-
----
-
----
-
-## 🧪 اختبار API
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" width="100" alt="API Testing">
-</div>
-
-### باستخدام cURL:
-
-```bash
-# 📝 تسجيل حساب جديد
+# باستخدام cURL
 curl -X POST http://localhost:3000/signup \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "أحمد محمد",
-    "email": "ahmed@test.com",
-    "password": "123456",
+    "userName": "johndoe",
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "password": "Pass123!",
+    "phoneNumber": "01234567890",
     "gender": "male",
-    "address": "الإسكندرية"
+    "bio": "Software developer",
+    "DOB": "1990-01-15"
   }'
+```
 
-# 🔑 تسجيل الدخول
-curl -X POST http://localhost:3000/login \
+**✅ الاستجابة المتوقعة:**
+```json
+{
+  "status": "success",
+  "message": "The account has been created successfully. Please check your email for verification."
+}
+```
+
+**🔍 تحقق من:**
+- [ ] ✅ Status Code = 201
+- [ ] ✅ Cookie موجود في Headers
+- [ ] ✅ OTP في قاعدة البيانات
+- [ ] ✅ بريد إلكتروني مرسل
+- [ ] ✅ كلمة المرور مشفرة
+- [ ] ✅ رقم الهاتف مشفر
+
+---
+
+### **2️⃣ اختبار Validation**
+
+```bash
+# محاولة تسجيل ببريد غير صالح
+curl -X POST http://localhost:3000/signup \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "ahmed@test.com",
-    "password": "123456"
+    "userName": "test",
+    "fullName": "Test",
+    "email": "invalid-email",
+    "password": "123",
+    "phoneNumber": "123"
   }'
+```
+
+**❌ الاستجابة المتوقعة:**
+```json
+{
+  "status": "error",
+  "message": "Validation failed",
+  "errors": [
+    {
+      "field": "email",
+      "message": "Please enter a valid email address"
+    },
+    {
+      "field": "password",
+      "message": "Password must be at least 6 characters"
+    },
+    {
+      "field": "phoneNumber",
+      "message": "Please enter a valid phone number"
+    }
+  ]
+}
 ```
 
 ---
 
-## 🎨 المزايا الرئيسية
+### **3️⃣ اختبار البريد المكرر**
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="200" alt="Features">
-</div>
+```bash
+# محاولة التسجيل بنفس البريد مرتين
+curl -X POST http://localhost:3000/signup \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userName": "johndoe2",
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "password": "Pass123!",
+    "phoneNumber": "01234567890"
+  }'
+```
 
-| 🎯 الميزة | 📝 التفاصيل |
-|:---:|:---|
-| ⚡ | **أداء عالي** - كود محسّن وسريع |
-| 🏗️ | **MVC Structure** - هيكلة احترافية |
-| 🔐 | **Multi-layer Security** - أمان متعدد الطبقات |
-| 👥 | **Role Management** - إدارة الأدوار (User/Admin) |
-| 📧 | **Email Confirmation** - تأكيد البريد الإلكتروني |
-| 🌍 | **RTL Support** - دعم العربية والإنجليزية |
-| 🔄 | **RESTful API** - معايير صناعية |
-| 📦 | **Easy to Scale** - قابل للتوسع |
-
----
-
-## 🔮 الخطط المستقبلية
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/3588/3588592.png" width="100" alt="Future Plans">
-</div>
-
-- [ ] إرسال تأكيد البريد الإلكتروني
-- [ ] نظام استعادة كلمة المرور
-- [ ] OAuth 2.0 (Google, Facebook, GitHub)
-- [ ] Two-Factor Authentication (2FA)
-- [ ] Rate Limiting للحماية من Brute Force
-- [ ] Refresh Tokens للجلسات الطويلة
-- [ ] لوحة تحكم إدارية كاملة
-- [ ] نظام الصلاحيات المتقدم
-- [ ] Logging & Monitoring
+**❌ الاستجابة المتوقعة:**
+```json
+{
+  "status": "fail",
+  "message": "This email is already registered",
+  "statusCode": 409
+}
+```
 
 ---
 
-## 📚 الحزم المستخدمة
+### **4️⃣ فحص قاعدة البيانات**
+
+```javascript
+// في MongoDB Compass أو mongosh
+
+// 1. فحص المستخدم
+db.users.findOne({ email: "john@example.com" })
+
+// 2. التحقق من تشفير كلمة المرور
+// يجب أن تبدأ بـ $2b$ (BCrypt)
+
+// 3. فحص OTP
+db.otps.find({ userId: ObjectId("...") }).sort({ createdAt: -1 })
+
+// 4. التحقق من TTL Index
+db.otps.getIndexes()
+// يجب أن يظهر index على createdAt مع expireAfterSeconds: 300
+```
+
+---
+
+### **5️⃣ فحص الـ Cookies**
+
+```javascript
+// في Browser Console بعد Signup
+
+// عرض جميع الـ Cookies
+document.cookie
+
+// يجب أن ترى:
+// OTP_verification_token=eyJhbGciOiJIUzI1NiIs...
+
+// فحص خصائص الـ Cookie في DevTools -> Application -> Cookies
+// ✅ HttpOnly: true
+// ✅ Secure: true
+// ✅ SameSite: Strict
+// ✅ Expires: بعد 5 دقائق من الآن
+```
+
+---
+
+### **6️⃣ فحص البريد الإلكتروني**
+
+**تحقق من:**
+- [ ] ✅ البريد وصل للـ Inbox
+- [ ] ✅ رمز OTP من 6 أرقام
+- [ ] ✅ التصميم صحيح (HTML)
+- [ ] ✅ المرسل صحيح
+
+---
+
+### **7️⃣ فحص Logs**
+
+```bash
+# عرض آخر 20 سطر من combined.log
+tail -n 20 logs/combined.log
+
+# يجب أن ترى:
+# [2024-10-31 15:30:00] info: User signup attempt {"email":"john@example.com"}
+# [2024-10-31 15:30:01] info: Verification email sent successfully {"email":"john@example.com"}
+
+# فحص أخطاء
+tail -n 20 logs/error.log
+```
+
+---
+
+## 🐛 حل المشاكل الشائعة
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" width="80" alt="NPM Packages">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920233.png" width="100" alt="Troubleshooting">
 </div>
+
+### **❌ مشكلة 1: خطأ في إرسال البريد**
+
+**الأعراض:**
+```
+Error: Invalid login: 535-5.7.8 Username and Password not accepted
+```
+
+**الحل:**
+```bash
+# 1. تفعيل "Less secure app access" في Gmail
+# أو الأفضل:
+
+# 2. استخدام App Password:
+# - اذهب لـ Google Account Settings
+# - Security -> 2-Step Verification
+# - App passwords -> Generate
+# - استخدم الـ Password المولد في .env
+
+EMAIL_PASS=abcd efgh ijkl mnop  # بدون مسافات
+```
+
+---
+
+### **❌ مشكلة 2: Validation لا يعمل**
+
+**الأعراض:**
+```
+Signup يتم بدون التحقق من البيانات
+```
+
+**الحل:**
+```javascript
+// تأكد من ترتيب الـ Middlewares في Route
+
+// ❌ خطأ
+router.post("/signup", signup, validate(signupSchema, "body"));
+
+// ✅ صحيح
+router.post("/signup", validate(signupSchema, "body"), signup);
+```
+
+---
+
+### **❌ مشكلة 3: OTP لا ينتهي بعد 5 دقائق**
+
+**الحل:**
+```javascript
+// في OTP Model، تأكد من:
+
+const otpSchema = new Schema({
+  // ...
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    expires: 300  // ✅ 300 ثانية = 5 دقائق
+  }
+});
+
+// وتأكد من Index:
+otpSchema.index({ createdAt: 1 }, { expireAfterSeconds: 0 });
+```
+
+---
+
+### **❌ مشكلة 4: Cookie لا يتم إرساله**
+
+**الأعراض:**
+```
+Cookie غير موجود في Browser
+```
+
+**الحل:**
+```javascript
+// 1. في التطوير، غير secure لـ false
+const cookieOptions = {
+  httpOnly: true,
+  secure: false,  // ✅ false في التطوير
+  sameSite: "Lax", // ✅ Lax أفضل في التطوير
+  maxAge: 5 * 60 * 1000,
+};
+
+// 2. تأكد أن Frontend و Backend على نفس الـ Domain
+// أو استخدم CORS settings:
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true  // ✅ مهم للـ Cookies
+}));
+```
+
+---
+
+### **❌ مشكلة 5: رقم الهاتف لا يفك تشفيره**
+
+**الحل:**
+```javascript
+// لفك تشفير رقم الهاتف:
+
+import CryptoJS from 'crypto-js';
+
+const decryptedPhone = CryptoJS.AES.decrypt(
+  user.phoneNumber,
+  process.env.ENCRYPT
+).toString(CryptoJS.enc.Utf8);
+
+console.log(decryptedPhone); // 01234567890
+```
+
+---
+
+## 📊 Package.json النهائي
 
 ```json
 {
+  "name": "e-commerce-auth",
+  "version": "2.0.0",
+  "description": "Advanced authentication system with OTP verification",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest",
+    "lint": "eslint src/"
+  },
+  "keywords": ["auth", "jwt", "otp", "email-verification"],
+  "author": "Mohamed Developer",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^7.5.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.2.0",
     "jsonwebtoken": "^9.0.2",
-    "dotenv": "^16.3.1"
+    "joi": "^17.11.0",
+    "nodemailer": "^6.9.7",
+    "winston": "^3.11.0",
+    "dotenv": "^16.3.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "eslint": "^8.52.0"
   }
 }
 ```
 
 ---
 
-## 🤝 المساهمة في المشروع
+## 🎯 الخلاصة والخطوات التالية
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="100" alt="Contribute">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968836.png" width="100" alt="Success">
 </div>
 
-نرحب بكل المساهمات! إليك الخطوات:
+### **✅ ما تم إنجازه:**
 
-1. 🍴 **Fork** المشروع
-2. 🌿 أنشئ فرع جديد (`git checkout -b feature/amazing-feature`)
-3. ✍️ اكتب الكود (`git commit -m 'Add amazing feature'`)
-4. 📤 ارفع التغييرات (`git push origin feature/amazing-feature`)
-5. 🔀 افتح **Pull Request**
+- [x] نظام تسجيل شامل بـ 8 حقول
+- [x] تشفير متقدم (BCrypt + CryptoJS)
+- [x] نظام OTP كامل
+- [x] إرسال بريد إلكتروني
+- [x] JWT Tokens (3 أنواع)
+- [x] Validation احترافي
+- [x] Error Handling شامل
+- [x] Logging System
+- [x] Secure Cookies
+
+### **🔮 الخطوات التالية:**
+
+1. **إضافة Verify OTP Endpoint**
+```javascript
+router.post("/verify-otp", verifyOTP);
+```
+
+2. **إضافة Resend OTP**
+```javascript
+router.post("/resend-otp", resendOTP);
+```
+
+3. **إضافة Login Controller**
+```javascript
+router.post("/login", login);
+```
+
+4. **إضافة Logout**
+```javascript
+router.post("/logout", logout);
+```
+
+5. **إضافة Refresh Token**
+```javascript
+router.post("/refresh-token", refreshAccessToken);
+```
 
 ---
 
-## 📄 الترخيص
-
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/3406/3406886.png" width="80" alt="License">
-</div>
 
-هذا المشروع مرخص تحت **MIT License** - حرية الاستخدام والتعديل
+### 📝 Signup System v2.0.0
+
+**آمن • متقدم • جاهز للإنتاج**
 
 ---
 
-## 👨‍💻 المطور
+**Branch:** `signup`  
+**Status:** ✅ Production Ready  
+**Last Updated:** November 2024
 
-<div align="center">
+**Created by:** Mohamed Developer
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Technologist.png" width="100" alt="Developer">
+[![Back to Main](https://img.shields.io/badge/Back_to-Main_README-blue?style=for-the-badge)](../README.md)
+[![Login Branch](https://img.shields.io/badge/View-Login_Branch-success?style=for-the-badge)](../login/README.md)
+[![Report Issue](https://img.shields.io/badge/Report-Issue-red?style=for-the-badge)](https://github.com/your-repo/issues)
 
-**Mohamed Developer**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohamed)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://mohamed-portfolio.com)
-
-</div>
-
----
-
-<div align="center">
-
-
-**الإصدار 1.0.0** | أكتوبر 2024
-
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star"> **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star">
-
-**نظام توثيق احترافي آمن وموثوق لمشروعك القادم** 🚀
+**⭐ إذا أعجبك المشروع، لا تنسَ إضافة نجمة على GitHub!**
 
 </div>
