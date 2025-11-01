@@ -138,6 +138,7 @@ npm install
 
 # 3️⃣ إعداد ملف البيئة
 cp .env.example .env
+# عدل ملف .env بمعلوماتك
 
 # 4️⃣ تشغيل السيرفر
 npm run dev
@@ -172,6 +173,433 @@ SOLT=10
 PORT=3000
 ```
 
+> ⚠️ **ملاحظة مهمة:** تأكد من استبدال `<username>` و `<password>` بمعلومات MongoDB الخاصة بك
+
+---
+
+## 🔄 استراتيجية Git Workflow - دليل شامل
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="120" alt="Git Workflow">
+</div>
+
+### 📖 فهم هيكلية الـ Branches
+
+> ⚠️ **نقطة مهمة جداً للمطورين الجدد**
+
+هذا المشروع يستخدم **Branch-Based Development Strategy** حيث:
+
+```
+📌 Branch: main
+├── ✅ الهيكلة الأساسية (Models, Routes, Config)
+├── ❌ Controllers فارغة أو غير مكتملة
+└── ✅ ملفات الإعداد الأساسية
+
+📌 Branch: login
+└── ✅ Login Controller كامل + Route
+
+📌 Branch: signup  
+└── ✅ Signup Controller كامل + Route
+```
+
+**لماذا هذه الاستراتيجية؟**
+- ✅ فصل واضح للميزات
+- ✅ سهولة المراجعة والاختبار
+- ✅ تجنب التعارضات
+- ✅ إمكانية العمل الجماعي
+
+---
+
+## 🎯 دليل البدء خطوة بخطوة
+
+### **📥 السيناريو 1: استنساخ المشروع وجمع كل الأكواد**
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" width="80" alt="Development Guide">
+</div>
+
+#### **المرحلة الأولى: الإعداد الأولي**
+
+```bash
+# ========================================
+# 1️⃣ استنساخ المشروع من GitHub
+# ========================================
+git clone https://github.com/your-username/e-commerce-auth.git
+cd e-commerce-auth
+
+# عرض الفرع الحالي
+git branch
+# Output: * main
+
+# ========================================
+# 2️⃣ جلب جميع الفروع من Remote
+# ========================================
+git fetch --all
+
+# عرض جميع الفروع (المحلية والبعيدة)
+git branch -a
+# Output:
+# * main
+#   remotes/origin/HEAD -> origin/main
+#   remotes/origin/main
+#   remotes/origin/login
+#   remotes/origin/signup
+```
+
+#### **المرحلة الثانية: إنشاء فرع Dev**
+
+```bash
+# ========================================
+# 3️⃣ إنشاء فرع dev من main
+# ========================================
+git checkout -b dev
+
+# تأكيد إنشاء الفرع
+git branch
+# Output:
+# * dev
+#   main
+
+echo "✅ تم إنشاء فرع dev بنجاح"
+```
+
+#### **المرحلة الثالثة: دمج Login Controller**
+
+```bash
+# ========================================
+# 4️⃣ دمج Login Branch في Dev
+# ========================================
+
+# التأكد من أنك على فرع dev
+git checkout dev
+
+# دمج login branch
+git merge origin/login --no-ff -m "Merge login controller"
+
+# --no-ff: يحافظ على سجل واضح للدمج
+# -m: رسالة الـ commit
+
+# إذا ظهرت رسالة نجاح:
+echo "✅ تم دمج Login Controller بنجاح"
+
+# ========================================
+# 🔴 إذا حدثت تعارضات (Conflicts)
+# ========================================
+
+# ستظهر رسالة مثل:
+# CONFLICT (content): Merge conflict in src/controllers/auth.controller.js
+# Automatic merge failed; fix conflicts and then commit the result.
+
+# الخطوات:
+# 1. افتح الملف المتعارض في محرر الأكواد
+# 2. ابحث عن العلامات:
+
+<<<<<<< HEAD
+// الكود من فرع dev
+=======
+// الكود من فرع login
+>>>>>>> origin/login
+
+# 3. احذف العلامات واختر الكود الصحيح
+# 4. احفظ الملف
+# 5. أضف الملفات المعدلة:
+
+git add src/controllers/auth.controller.js
+git commit -m "Resolve merge conflicts in login controller"
+
+echo "✅ تم حل التعارضات وإكمال الدمج"
+```
+
+#### **المرحلة الرابعة: دمج Signup Controller**
+
+```bash
+# ========================================
+# 5️⃣ دمج Signup Branch في Dev
+# ========================================
+
+# التأكد من أنك على فرع dev
+git checkout dev
+
+# دمج signup branch
+git merge origin/signup --no-ff -m "Merge signup controller"
+
+# معالجة التعارضات إن وجدت (نفس الخطوات السابقة)
+
+git add .
+git commit -m "Complete auth system with login and signup"
+
+echo "✅ تم دمج Signup Controller بنجاح"
+```
+
+#### **المرحلة الخامسة: التحقق والاختبار**
+
+```bash
+# ========================================
+# 6️⃣ فحص الملفات المدمجة
+# ========================================
+
+# عرض محتوى مجلد controllers
+ls -la src/controllers/
+# يجب أن ترى: auth.controller.js
+
+# عرض محتوى الملف
+cat src/controllers/auth.controller.js
+# يجب أن يحتوي على login و signup functions
+
+# ========================================
+# 7️⃣ تثبيت الحزم والتشغيل
+# ========================================
+
+# تثبيت جميع الحزم المطلوبة
+npm install
+
+# إنشاء ملف .env من .env.example
+cp .env.example .env
+
+# افتح .env وعدل القيم:
+# nano .env
+# أو
+# code .env
+
+# تشغيل المشروع
+npm run dev
+
+# يجب أن ترى:
+# ✅ Database Connected Successfully
+# 🚀 Server running at: http://localhost:3000
+```
+
+#### **المرحلة السادسة: اختبار API**
+
+```bash
+# ========================================
+# 8️⃣ اختبار Signup
+# ========================================
+curl -X POST http://localhost:3000/signup \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "123456"
+  }'
+
+# Response المتوقع:
+# {
+#   "message": "تم إنشاء الحساب بنجاح...",
+#   "user": {...}
+# }
+
+# ========================================
+# 9️⃣ اختبار Login
+# ========================================
+curl -X POST http://localhost:3000/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test@example.com",
+    "password": "123456"
+  }'
+
+# Response المتوقع:
+# {
+#   "message": "done",
+#   "token": "eyJhbGciOiJIUzI1NiIs..."
+# }
+
+echo "✅ جميع الاختبارات نجحت!"
+```
+
+#### **المرحلة السابعة: دمج في Main (اختياري)**
+
+```bash
+# ========================================
+# 🔟 دمج Dev في Main (بعد التأكد من كل شيء)
+# ========================================
+
+# الانتقال لـ main
+git checkout main
+
+# دمج dev في main
+git merge dev --no-ff -m "Complete authentication system v1.0"
+
+# رفع التغييرات لـ GitHub
+git push origin main
+
+# رفع فرع dev أيضاً
+git push -u origin dev
+
+echo "🎉 تم! المشروع جاهز بالكامل"
+```
+
+---
+
+## 🔀 سيناريوهات إضافية
+
+### **📌 السيناريو 2: إضافة ميزة جديدة**
+
+```bash
+# البدء من dev
+git checkout dev
+git pull origin dev  # أحدث نسخة
+
+# إنشاء فرع للميزة الجديدة
+git checkout -b feature/password-reset
+
+# بعد كتابة الكود
+git add .
+git commit -m "Add password reset functionality"
+git push -u origin feature/password-reset
+
+# دمج في dev
+git checkout dev
+git merge feature/password-reset
+git push origin dev
+```
+
+### **📌 السيناريو 3: تحديث من Remote**
+
+```bash
+# على فرع dev
+git checkout dev
+
+# جلب وتحديث من origin
+git pull origin dev
+
+# إذا كان لديك تغييرات محلية
+git stash                 # حفظ مؤقت
+git pull origin dev       # تحديث
+git stash pop            # استعادة التغييرات
+```
+
+---
+
+## 🛠️ حل المشاكل الشائعة بالتفصيل
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920233.png" width="100" alt="Troubleshooting">
+</div>
+
+### **❌ مشكلة 1: "Merge Conflict" عند الدمج**
+
+**الأعراض:**
+```bash
+Auto-merging src/controllers/auth.controller.js
+CONFLICT (content): Merge conflict in src/controllers/auth.controller.js
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+**الحل التفصيلي:**
+
+```bash
+# 1. افتح الملف المتعارض
+code src/controllers/auth.controller.js
+# أو
+nano src/controllers/auth.controller.js
+
+# 2. ستجد شيء مثل:
+<<<<<<< HEAD
+export const login = async (req, res) => {
+  // كود من dev
+}
+=======
+export const signup = async (req, res) => {
+  // كود من signup
+}
+>>>>>>> origin/signup
+
+# 3. اختر ما تريد (أو ادمج يدوياً):
+export const login = async (req, res) => {
+  // كود login
+}
+
+export const signup = async (req, res) => {
+  // كود signup
+}
+
+# 4. احفظ الملف واحذف العلامات (<<<<, ====, >>>>)
+
+# 5. أضف الملف
+git add src/controllers/auth.controller.js
+
+# 6. أكمل الـ merge
+git commit -m "Resolve merge conflict: combine login and signup"
+
+# ✅ تم الحل!
+```
+
+### **❌ مشكلة 2: "fatal: refusing to merge unrelated histories"**
+
+**الحل:**
+```bash
+git merge origin/login --allow-unrelated-histories
+```
+
+### **❌ مشكلة 3: الفروع لا تظهر**
+
+```bash
+# حل 1: تحديث الفروع
+git fetch --all --prune
+
+# حل 2: عرض الفروع البعيدة فقط
+git branch -r
+
+# حل 3: تتبع فرع بعيد
+git checkout --track origin/login
+```
+
+### **❌ مشكلة 4: خطأ في دمج أخير**
+
+```bash
+# إلغاء آخر merge
+git merge --abort
+
+# أو التراجع عن آخر commit
+git reset --hard HEAD~1
+
+# أو استخدام reflog للعودة لنقطة محددة
+git reflog
+git reset --hard HEAD@{2}
+```
+
+---
+
+## 📋 Checklist الدمج الآمن
+
+<div align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" width="80" alt="Checklist">
+</div>
+
+قبل دمج أي فرع، تأكد من:
+
+```bash
+# ✅ 1. جلب آخر التحديثات
+git fetch --all
+
+# ✅ 2. التأكد من الفرع الحالي
+git branch
+# يجب أن ترى * بجانب dev
+
+# ✅ 3. التأكد من عدم وجود تغييرات غير محفوظة
+git status
+# يجب أن ترى: nothing to commit, working tree clean
+
+# ✅ 4. عمل backup (اختياري)
+git branch backup-$(date +%Y%m%d)
+
+# ✅ 5. الدمج
+git merge origin/branch-name
+
+# ✅ 6. الاختبار
+npm run dev
+# تأكد أن كل شيء يعمل
+
+# ✅ 7. Commit النهائي
+git add .
+git commit -m "Descriptive message"
+
+# ✅ 8. Push
+git push origin dev
+```
+
 ---
 
 ## 📡 نقاط النهاية API
@@ -182,16 +610,12 @@ PORT=3000
 
 ### 1️⃣ إنشاء حساب جديد (Signup)
 
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/6711/6711659.png" width="100" alt="Signup">
-</div>
-
 ```http
 POST /signup
 Content-Type: application/json
 ```
 
-**البيانات المطلوبة:**
+**Request Body:**
 ```json
 {
   "name": "محمد أحمد",
@@ -202,7 +626,7 @@ Content-Type: application/json
 }
 ```
 
-**الاستجابة (201 Created):**
+**Success Response (201):**
 ```json
 {
   "message": "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
@@ -211,32 +635,22 @@ Content-Type: application/json
     "name": "محمد أحمد",
     "email": "mohamed@example.com",
     "gender": "male",
-    "address": "القاهرة، مصر",
     "confirmEmail": false,
-    "role": "user",
-    "createdAt": "2024-10-31T10:30:00.000Z"
+    "role": "user"
   }
 }
 ```
 
-**حالات الخطأ:**
-- `409 Conflict` - البريد مسجل مسبقاً
-- `500 Internal Server Error` - خطأ في الخادم
-
 ---
 
 ### 2️⃣ تسجيل الدخول (Login)
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/6357/6357048.png" width="100" alt="Login">
-</div>
 
 ```http
 POST /login
 Content-Type: application/json
 ```
 
-**البيانات المطلوبة:**
+**Request Body:**
 ```json
 {
   "email": "mohamed@example.com",
@@ -244,787 +658,98 @@ Content-Type: application/json
 }
 ```
 
-**الاستجابة (200 OK):**
+**Success Response (200):**
 ```json
 {
   "message": "done",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY..."
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
 
-**حالات الخطأ:**
-- `404 Not Found` - بيانات دخول خاطئة
-- `403 Forbidden` - البريد غير مؤكد
-- `401 Unauthorized` - دور المستخدم غير صالح
-- `500 Internal Server Error` - خطأ في الخادم
-
 ---
 
-## 🗃️ نموذج البيانات (User Schema)
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="100" alt="Database Schema">
-</div>
-
-```javascript
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Name is required'],
-    minlength: 3,
-    maxlength: 25,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required'],
-    unique: true,
-    lowercase: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: [true, 'Password is required'],
-    minlength: 6
-  },
-  gender: {
-    type: String,
-    enum: ['male', 'female'],
-    default: "male"
-  },
-  address: {
-    type: String
-  },
-  image: String,
-  confirmEmail: {
-    type: Boolean,
-    default: false
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: "user"
-  }
-}, { timestamps: true });
-```
-
----
-
-## 🔐 نظام الأمان المتقدم
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200" alt="Security System">
-</div>
-
-| الميزة | الوصف | التنفيذ |
-|:---:|:---|:---:|
-| 🔒 | **تشفير كلمات المرور** | BCrypt مع 10 Salt Rounds |
-| 🎫 | **JWT Tokens منفصلة** | User Token & Admin Token |
-| ✉️ | **تأكيد البريد** | منع الدخول قبل التأكيد |
-| 🛡️ | **Unique Email** | لا تكرار للحسابات |
-| ⏱️ | **Token Expiration** | صلاحية ساعة واحدة |
-| 🔍 | **Role-Based Auth** | صلاحيات حسب الدور |
-
----
-
-## 📝 أكواد المشروع الكاملة
-
-### 🗄️ **1. نموذج المستخدم** `user.model.js`
-
-```javascript
-import mongoose, { Schema, model } from "mongoose";
-
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Name is required'],
-    minlength: 3,
-    maxlength: 25,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required'],
-    unique: true,
-    lowercase: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: [true, 'Password is required'],
-    minlength: 6
-  },
-  gender: {
-    type: String,
-    enum: ['male', 'female'],
-    default: "male"
-  },
-  address: {
-    type: String,
-  },
-  image: String,
-  confirmEmail: {
-    type: Boolean,
-    default: false
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: "user"
-  }
-}, { timestamps: true });
-
-const userModel = mongoose.models.User || model("User", userSchema);
-export default userModel;
-```
-
----
-
-### ⚙️ **2. اتصال قاعدة البيانات** `connect-mongo.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" width="80" alt="MongoDB Connection">
-</div>
-
-```javascript
-import mongoose from 'mongoose';
-import * as dotenv from 'dotenv';
-import path from 'path';
-
-dotenv.config({ path: path.resolve('.env') });
-
-console.log({ path: path.resolve('.env') });
-
-const dbConnect = () => {
-  mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ Database Connected Successfully"))
-    .catch((err) => console.log("❌ Database Connection Error:", err));
-}
-
-export default dbConnect;
-```
-
----
-
-### 🎮 **3. الكنترولرز** `auth.controller.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920235.png" width="80" alt="Controllers">
-</div>
-
-```javascript
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import userModel from "../models/user.model.js";
-
-// 📝 Signup Controller
-export const signup = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    const checkUser = await userModel.findOne({ email });
-    if (checkUser) {
-      return res
-        .status(409)
-        .json({ message: "هذا البريد الإلكتروني مسجل بالفعل" });
-    }
-
-    const hashPassword = await bcrypt.hash(
-      password,
-      parseInt(process.env.SOLT)
-    );
-
-    const user = await userModel.create({
-      name,
-      email,
-      password: hashPassword,
-    });
-
-    return res.status(201).json({
-      message: "تم إنشاء الحساب بنجاح. يرجى تأكيد البريد الإلكتروني.",
-      user,
-    });
-  } catch (error) {
-    console.error("Signup error:", error);
-    return res
-      .status(500)
-      .json({ message: "حدث خطأ داخلي في الخادم. حاول لاحقًا." });
-  }
-};
-
-// 🔑 Login Controller
-export const login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "in-valid login Data" });
-    }
-
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(404).json({ message: "in-valid login Data" });
-    }
-
-    if (!user.confirmEmail) {
-      return res.status(403).json({ 
-        message: "Please confirm your email before proceeding" 
-      });
-    }
-
-    let token;
-    switch (user.role) {
-      case "user":
-        token = jwt.sign(
-          { id: user._id },
-          process.env.JWT_SECRET,
-          { expiresIn: "1h" }
-        );
-        break;
-      case "admin":
-        token = jwt.sign(
-          { id: user._id },
-          process.env.JWT_SECRETADMIN,
-          { expiresIn: "1h" }
-        );
-        break;
-      default:
-        return res.status(401).json({ message: "login role invalid" });
-    }
-
-    return res.status(200).json({ message: "done", token });
-
-  } catch (error) {
-    console.error("Login error:", error);
-    return res.status(500).json({ message: 'Internal server error' });
-  }
-};
-```
-
----
-
-### 🛣️ **4. المسارات** `auth.routes.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" width="80" alt="Routes">
-</div>
-
-```javascript
-import express from "express";
-import { signup, login } from "../controllers/auth.controller.js";
-
-const router = express.Router();
-
-router.post("/login", login);
-router.post("/signup", signup);
-
-export default router;
-```
-
----
-
-### 🚀 **5. التطبيق الرئيسي** `app.js`
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" width="80" alt="Node.js App">
-</div>
-
-```javascript
-import dbConnect from './config/connect-mongo.js';
-import router from './routes/auth.routes.js';
-import express from 'express';
-
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-dbConnect();
-
-app.use("/", router);
-
-app.listen(port, () => console.log(`🚀 Server running at: http://localhost:${port}`));
-```
-
----
-
-## 🔄 استراتيجية العمل على المشروع (Git Workflow)
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/4494/4494740.png" width="100" alt="Git Workflow">
-</div>
-
-> ⚠️ **ملاحظة مهمة جداً للمطورين**
-
-هذا المشروع يستخدم استراتيجية **Branch-Based Development** حيث:
-- **Branch Main** يحتوي على الهيكلة الأساسية فقط (بدون Controllers)
-- **Branch Login** يحتوي على Login Controller
-- **Branch Signup** يحتوي على Signup Controller
-
-### 📖 شرح الهيكلية الحالية
-
-```
-📌 Branch: main
-├── ✅ Models (user.model.js)
-├── ✅ Routes (auth.routes.js) - فارغة
-├── ❌ Controllers - فارغة أو غير مكتملة
-└── ✅ Database Config
-
-📌 Branch: login
-└── ✅ Login Controller (مكتمل)
-
-📌 Branch: signup
-└── ✅ Signup Controller (مكتمل)
-```
-
----
-
-## 🎯 كيفية البدء في التطوير
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" width="80" alt="Development Guide">
-</div>
-
-### **الطريقة الموصى بها: إنشاء فرع Dev وجمع كل شيء**
-
-#### **الخطوة 1️⃣: استنساخ المشروع**
-
-```bash
-# استنساخ المشروع
-git clone https://github.com/your-username/e-commerce-auth.git
-cd e-commerce-auth
-
-# التأكد من أنك على فرع main
-git checkout main
-```
-
-#### **الخطوة 2️⃣: إنشاء فرع Dev للتطوير**
-
-```bash
-# إنشاء فرع dev من main
-git checkout -b dev
-
-# التأكد من الفرع الحالي
-git branch
-# * dev
-#   main
-```
-
-#### **الخطوة 3️⃣: جلب الـ Branches الأخرى**
-
-```bash
-# جلب جميع الفروع من الريبو
-git fetch --all
-
-# عرض جميع الفروع المتاحة
-git branch -a
-# * dev
-#   main
-#   remotes/origin/login
-#   remotes/origin/signup
-```
-
-#### **الخطوة 4️⃣: دمج Login Controller**
-
-```bash
-# دمج branch login في dev
-git merge origin/login
-
-# في حالة حدوث تعارضات (Conflicts):
-# 1. افتح الملفات المتعارضة
-# 2. احتفظ بالكود المطلوب
-# 3. احذف علامات Git (<<<<, ====, >>>>)
-# 4. ثم:
-git add .
-git commit -m "Merge login controller into dev"
-```
-
-#### **الخطوة 5️⃣: دمج Signup Controller**
-
-```bash
-# دمج branch signup في dev
-git merge origin/signup
-
-# معالجة التعارضات إن وجدت
-git add .
-git commit -m "Merge signup controller into dev"
-```
-
-#### **الخطوة 6️⃣: التحقق من الكود**
-
-```bash
-# التأكد من وجود جميع الملفات
-ls src/controllers/
-# يجب أن ترى: auth.controller.js (بالكود الكامل)
-
-# فحص محتوى الملف
-cat src/controllers/auth.controller.js
-```
-
-#### **الخطوة 7️⃣: اختبار المشروع**
-
-```bash
-# تثبيت الحزم
-npm install
-
-# تشغيل المشروع
-npm run dev
-
-# يجب أن ترى:
-# ✅ Database Connected Successfully
-# 🚀 Server running at: http://localhost:3000
-```
-
----
-
-## 🔀 سيناريوهات العمل المختلفة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920299.png" width="80" alt="Work Scenarios">
-</div>
-
-### **السيناريو 1: العمل على Dev ثم Push للـ Main**
-
-```bash
-# بعد إتمام التطوير والاختبار على dev
-git checkout dev
-git add .
-git commit -m "Complete authentication system"
-
-# الرجوع لـ main ودمج dev
-git checkout main
-git merge dev
-
-# رفع التغييرات
-git push origin main
-```
-
-### **السيناريو 2: إنشاء فرع جديد لميزة إضافية**
-
-```bash
-# إنشاء فرع من dev
-git checkout dev
-git checkout -b feature/email-verification
-
-# بعد الانتهاء
-git checkout dev
-git merge feature/email-verification
-```
-
-### **السيناريو 3: دمج مباشر في Main (للمشاريع الصغيرة)**
-
-```bash
-# الانتقال لـ main
-git checkout main
-
-# دمج login
-git merge origin/login -m "Add login controller"
-
-# دمج signup
-git merge origin/signup -m "Add signup controller"
-
-# رفع التغييرات
-git push origin main
-```
-
----
-
-## 🛠️ حل المشاكل الشائعة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920233.png" width="80" alt="Troubleshooting">
-</div>
-
-### **مشكلة 1: Merge Conflicts**
-
-```bash
-# عند ظهور:
-# CONFLICT (content): Merge conflict in src/controllers/auth.controller.js
-
-# الحل:
-# 1. افتح الملف المتعارض
-# 2. ابحث عن:
-<<<<<<< HEAD
-// كود من الفرع الحالي
-=======
-// كود من الفرع المدمج
->>>>>>> origin/login
-
-# 3. احذف العلامات واحتفظ بالكود المطلوب
-# 4. احفظ الملف
-git add src/controllers/auth.controller.js
-git commit -m "Resolve merge conflicts"
-```
-
-### **مشكلة 2: الفروع غير ظاهرة**
-
-```bash
-# جلب جميع الفروع
-git fetch --all
-
-# عرض الفروع البعيدة
-git branch -r
-
-# تتبع فرع بعيد
-git checkout --track origin/login
-```
-
-### **مشكلة 3: الرجوع عن Merge خاطئ**
-
-```bash
-# التراجع عن آخر merge
-git reset --hard HEAD~1
-
-# أو التراجع لنقطة محددة
-git reflog
-git reset --hard HEAD@{2}
-```
-
----
-
-## 📋 Checklist قبل الـ Merge
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" width="80" alt="Checklist">
-</div>
-
-قبل دمج أي فرع، تأكد من:
-
-- [ ] ✅ جلب آخر التحديثات (`git fetch --all`)
-- [ ] ✅ أنت على الفرع الصحيح (`git branch`)
-- [ ] ✅ لا يوجد تغييرات غير محفوظة (`git status`)
-- [ ] ✅ اختبار الكود بعد الدمج
-- [ ] ✅ حل جميع التعارضات
-- [ ] ✅ تأكيد الـ Commit بوصف واضح
-
----
-
-## 🎬 مثال عملي كامل
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2620/2620521.png" width="80" alt="Example">
-</div>
-
-### **من البداية للنهاية:**
-
-```bash
-# 1️⃣ استنساخ المشروع
-git clone https://github.com/mohamed-dev/e-commerce-auth.git
-cd e-commerce-auth
-
-# 2️⃣ إنشاء فرع dev
-git checkout -b dev
-echo "✅ Created dev branch"
-
-# 3️⃣ جلب الفروع
-git fetch --all
-echo "✅ Fetched all branches"
-
-# 4️⃣ دمج login
-git merge origin/login --no-ff -m "Merge login controller"
-echo "✅ Merged login controller"
-
-# 5️⃣ دمج signup
-git merge origin/signup --no-ff -m "Merge signup controller"
-echo "✅ Merged signup controller"
-
-# 6️⃣ التحقق من الملفات
-ls -la src/controllers/
-cat src/controllers/auth.controller.js
-
-# 7️⃣ تثبيت وتشغيل
-npm install
-cp .env.example .env
-# عدل ملف .env بمعلوماتك
-npm run dev
-
-# 8️⃣ اختبار API
-curl -X POST http://localhost:3000/signup \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test User","email":"test@test.com","password":"123456"}'
-
-# 9️⃣ إذا كل شيء يعمل، ادمج في main
-git checkout main
-git merge dev --no-ff -m "Complete authentication system"
-git push origin main
-
-echo "🎉 Done! Project is ready!"
-```
-
----
-
-## 📊 رسم توضيحي لـ Git Flow
-
-```
-                    main (الأساسيات فقط)
-                     |
-                     |
-        ┌────────────┴────────────┐
-        |                         |
-    origin/login            origin/signup
-    (Login Controller)      (Signup Controller)
-        |                         |
-        |                         |
-        └────────────┬────────────┘
-                     |
-                     ↓
-                    dev
-            (كل شيء مدمج هنا)
-                     |
-                     ↓
-            Test & Development
-                     |
-                     ↓
-                    main
-            (النسخة النهائية)
-```
-
----
-
-## 💡 نصائح مهمة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" width="80" alt="Tips">
-</div>
-
-1. **🔒 لا تعمل مباشرة على Main**
-   - دائماً اعمل على `dev` أو فرع Feature
-   - Main فقط للنسخ المستقرة
-
-2. **💾 اعمل Commit بانتظام**
-   ```bash
-   git add .
-   git commit -m "وصف واضح للتغييرات"
-   ```
-
-3. **🧪 اختبر قبل الـ Merge**
-   ```bash
-   npm test  # إذا كان لديك tests
-   npm run dev  # تأكد أن كل شيء يعمل
-   ```
-
-4. **📝 استخدم أوصاف Commit واضحة**
-   ```bash
-   ✅ Good: "Add login validation and error handling"
-   ❌ Bad: "update"
-   ```
-
-5. **🔄 اسحب التحديثات دائماً**
-   ```bash
-   git pull origin dev  # قبل البدء في العمل
-   ```
-
----
-
-## 🎓 أوامر Git المفيدة
+## 🎓 أوامر Git الأساسية
 
 <div align="center">
 <img src="https://cdn-icons-png.flaticon.com/512/2620/2620522.png" width="80" alt="Git Commands">
 </div>
 
-| الأمر | الوصف |
-|:------|:------|
-| `git status` | عرض حالة الملفات |
-| `git branch` | عرض الفروع المحلية |
-| `git branch -a` | عرض كل الفروع (محلي + بعيد) |
-| `git fetch --all` | جلب جميع التحديثات |
-| `git merge <branch>` | دمج فرع |
-| `git merge --abort` | إلغاء الدمج |
-| `git log --oneline` | عرض سجل الـ Commits |
-| `git checkout <branch>` | الانتقال لفرع |
-| `git checkout -b <branch>` | إنشاء فرع جديد |
-| `git pull origin <branch>` | سحب تحديثات فرع |
-| `git push origin <branch>` | رفع فرع |
+| الأمر | الوصف | مثال |
+|:------|:------|:-----|
+| `git status` | عرض حالة الملفات | `git status` |
+| `git branch` | عرض/إنشاء فروع | `git branch dev` |
+| `git checkout` | التنقل بين الفروع | `git checkout dev` |
+| `git fetch` | جلب التحديثات | `git fetch --all` |
+| `git merge` | دمج الفروع | `git merge origin/login` |
+| `git pull` | جلب ودمج | `git pull origin dev` |
+| `git push` | رفع التغييرات | `git push origin dev` |
+| `git log` | عرض السجل | `git log --oneline --graph` |
+| `git stash` | حفظ مؤقت | `git stash save "WIP"` |
+| `git reset` | التراجع | `git reset --hard HEAD~1` |
 
 ---
 
----
-
-## 🧪 اختبار API
+## 💡 نصائح ذهبية للمطورين
 
 <div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" width="100" alt="API Testing">
+<img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" width="80" alt="Tips">
 </div>
 
-### باستخدام cURL:
+### **🔐 الأمان والتنظيم:**
 
-```bash
-# 📝 تسجيل حساب جديد
-curl -X POST http://localhost:3000/signup \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "أحمد محمد",
-    "email": "ahmed@test.com",
-    "password": "123456",
-    "gender": "male",
-    "address": "الإسكندرية"
-  }'
+1. **لا تعمل مباشرة على Main**
+   ```bash
+   # ❌ خطأ
+   git checkout main
+   # edit files...
+   git commit -m "changes"
+   
+   # ✅ صحيح
+   git checkout -b feature/my-feature
+   # edit files...
+   git commit -m "Add my feature"
+   ```
 
-# 🔑 تسجيل الدخول
-curl -X POST http://localhost:3000/login \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "ahmed@test.com",
-    "password": "123456"
-  }'
-```
+2. **اعمل Commit بانتظام مع أوصاف واضحة**
+   ```bash
+   # ❌ سيء
+   git commit -m "update"
+   git commit -m "fix"
+   
+   # ✅ جيد
+   git commit -m "Add email validation to signup"
+   git commit -m "Fix: Resolve password hashing issue"
+   ```
+
+3. **استخدم .gitignore**
+   ```bash
+   # أضف في .gitignore
+   node_modules/
+   .env
+   logs/
+   *.log
+   .DS_Store
+   ```
+
+4. **اختبر قبل Merge**
+   ```bash
+   npm run test
+   npm run dev
+   # تأكد أن كل شيء يعمل
+   ```
 
 ---
 
-## 🎨 المزايا الرئيسية
+## 📚 موارد إضافية
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="200" alt="Features">
+<img src="https://cdn-icons-png.flaticon.com/512/2702/2702154.png" width="80" alt="Resources">
 </div>
 
-| 🎯 الميزة | 📝 التفاصيل |
-|:---:|:---|
-| ⚡ | **أداء عالي** - كود محسّن وسريع |
-| 🏗️ | **MVC Structure** - هيكلة احترافية |
-| 🔐 | **Multi-layer Security** - أمان متعدد الطبقات |
-| 👥 | **Role Management** - إدارة الأدوار (User/Admin) |
-| 📧 | **Email Confirmation** - تأكيد البريد الإلكتروني |
-| 🌍 | **RTL Support** - دعم العربية والإنجليزية |
-| 🔄 | **RESTful API** - معايير صناعية |
-| 📦 | **Easy to Scale** - قابل للتوسع |
-
----
-
-## 🔮 الخطط المستقبلية
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/3588/3588592.png" width="100" alt="Future Plans">
-</div>
-
-- [ ] إرسال تأكيد البريد الإلكتروني
-- [ ] نظام استعادة كلمة المرور
-- [ ] OAuth 2.0 (Google, Facebook, GitHub)
-- [ ] Two-Factor Authentication (2FA)
-- [ ] Rate Limiting للحماية من Brute Force
-- [ ] Refresh Tokens للجلسات الطويلة
-- [ ] لوحة تحكم إدارية كاملة
-- [ ] نظام الصلاحيات المتقدم
-- [ ] Logging & Monitoring
-
----
-
-## 📚 الحزم المستخدمة
-
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" width="80" alt="NPM Packages">
-</div>
-
-```json
-{
-  "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.5.0",
-    "bcrypt": "^5.1.1",
-    "jsonwebtoken": "^9.0.2",
-    "dotenv": "^16.3.1"
-  }
-}
-```
+- [📖 Git Documentation](https://git-scm.com/doc)
+- [🎓 Git Tutorial - Atlassian](https://www.atlassian.com/git/tutorials)
+- [📺 Git & GitHub Crash Course](https://www.youtube.com/watch?v=SWYqp7iY_Tc)
+- [🔧 GitHub CLI](https://cli.github.com/)
 
 ---
 
@@ -1036,21 +761,17 @@ curl -X POST http://localhost:3000/login \
 
 نرحب بكل المساهمات! إليك الخطوات:
 
-1. 🍴 **Fork** المشروع
-2. 🌿 أنشئ فرع جديد (`git checkout -b feature/amazing-feature`)
-3. ✍️ اكتب الكود (`git commit -m 'Add amazing feature'`)
-4. 📤 ارفع التغييرات (`git push origin feature/amazing-feature`)
-5. 🔀 افتح **Pull Request**
+1. 🍴 Fork المشروع
+2. 🌿 `git checkout -b feature/amazing-feature`
+3. ✍️ `git commit -m 'Add amazing feature'`
+4. 📤 `git push origin feature/amazing-feature`
+5. 🔀 افتح Pull Request
 
 ---
 
 ## 📄 الترخيص
 
-<div align="center">
-<img src="https://cdn-icons-png.flaticon.com/512/3406/3406886.png" width="80" alt="License">
-</div>
-
-هذا المشروع مرخص تحت **MIT License** - حرية الاستخدام والتعديل
+هذا المشروع مرخص تحت **MIT License**
 
 ---
 
@@ -1065,7 +786,6 @@ curl -X POST http://localhost:3000/login \
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-dev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohamed)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohamed@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://mohamed-portfolio.com)
 
 </div>
 
@@ -1073,10 +793,11 @@ curl -X POST http://localhost:3000/login \
 
 <div align="center">
 
+### 💙 صُنع بحب في مصر 🇪🇬
 
-**الإصدار 1.0.0** | أكتوبر 2024
+**v1.0.0** | نوفمبر 2024
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star"> **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25" alt="Star">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25"> **إذا أعجبك المشروع، لا تنسَ إضافة نجمة!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" width="25">
 
 **نظام توثيق احترافي آمن وموثوق لمشروعك القادم** 🚀
 
