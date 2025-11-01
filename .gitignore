@@ -3,6 +3,7 @@ node_modules/
 
 # Environment variables
 .env
+keys
 
 # Logs
 npm-debug.log*
