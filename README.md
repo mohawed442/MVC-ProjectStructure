@@ -793,7 +793,6 @@ Content-Type: application/json
 
 <div align="center">
 
-### 💙 صُنع بحب في مصر 🇪🇬
 
 **v1.0.0** | نوفمبر 2024
 
