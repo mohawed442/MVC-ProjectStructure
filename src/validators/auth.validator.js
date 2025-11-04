@@ -90,6 +90,7 @@ const signupSchema = Joi.object({
 }).prefs({ abortEarly: false });
 
 export const loginSchema = Joi.object({
+
   email: rules.email.required(),
   password: rules.password.required(),
 }).prefs({ abortEarly: false });
@@ -99,6 +100,7 @@ export const forgetPasswordSchema = Joi.object({
 });
 
 export const resetPasswordSchema = Joi.object({
+
   newPassword: rules.password.required().label("New password"),
   confirmationPassword: Joi.string()
     .required()
@@ -109,6 +111,7 @@ export const resetPasswordSchema = Joi.object({
       "string.empty": "Confirmation password is required",
     }),
 }).prefs({ abortEarly: false });
+
 
 export const verifyOtpSchema = Joi.object({
   code: rules.otpCode.required(),
