@@ -71,7 +71,7 @@ const rules = {
     }),
 };
 
-const signupSchema = Joi.object({
+export const signupSchema = Joi.object({
   userName: rules.userName.required(),
   fullName: rules.fullName.required(),
   email: rules.email.required(),
