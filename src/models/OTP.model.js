@@ -1,6 +1,6 @@
-const mongoose = require("../config/connect-mongo").mongoose;
+import {mongoose} from "../config/connect-mongo.js" ;
 
-const OTP_schema = new mongoose.Schema(
+const OTPSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,8 @@ const OTP_schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-OTP_schema.index({ createdAt: 1 }, { expireAfterSeconds: 5 * 60 });
-const OTP = mongoose.model("OTP", OTP_schema);
+OTPSchema.index({ createdAt: 1 }, { expireAfterSeconds: 5 * 60 });
 
-module.exports = OTP;
+const OTP = mongoose.model("OTP", OTPSchema);
+
+export default OTP;

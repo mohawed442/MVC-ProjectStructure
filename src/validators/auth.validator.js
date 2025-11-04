@@ -1,4 +1,5 @@
-const Joi = require("joi");
+
+import Joi from "joi";
 
 const rules = {
   userName: Joi.string().min(4).max(12).lowercase().messages({
@@ -89,16 +90,20 @@ const signupSchema = Joi.object({
   DOB: rules.DOB.required(),
 }).prefs({ abortEarly: false });
 
-const loginSchema = Joi.object({
+
+export const loginSchema = Joi.object({
+
   email: rules.email.required(),
   password: rules.password.required(),
 }).prefs({ abortEarly: false });
 
-const forgetPasswordSchema = Joi.object({
+
+export const forgetPasswordSchema = Joi.object({
   email: rules.email.required(),
 });
 
-const resetPasswordSchema = Joi.object({
+export const resetPasswordSchema = Joi.object({
+
   newPassword: rules.password.required().label("New password"),
   confirmationPassword: Joi.string()
     .required()
@@ -110,14 +115,9 @@ const resetPasswordSchema = Joi.object({
     }),
 }).prefs({ abortEarly: false });
 
-const verifyOtpSchema = Joi.object({
+
+export const verifyOtpSchema = Joi.object({
   code: rules.otpCode.required(),
 });
 
-module.exports = {
-  signupSchema,
-  loginSchema,
-  forgetPasswordSchema,
-  resetPasswordSchema,
-  verifyOtpSchema,
-};
+

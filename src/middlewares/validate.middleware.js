@@ -1,12 +1,14 @@
 import Joi from "joi" ;
 
 export const validate = (schema, property = "body") => {
+
   return (req, res, next) => {
     const data = req[property];
 
     const { error, value } = schema.validate(data, {
       abortEarly: false, 
       stripUnknown: true 
+
     });
 
     if (error) {
@@ -25,3 +27,5 @@ export const validate = (schema, property = "body") => {
     next();
   };
 };
+
+
