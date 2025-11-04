@@ -1,3 +1,4 @@
+
 import Joi from "joi";
 
 const rules = {
@@ -89,11 +90,13 @@ const signupSchema = Joi.object({
   DOB: rules.DOB.required(),
 }).prefs({ abortEarly: false });
 
+
 export const loginSchema = Joi.object({
 
   email: rules.email.required(),
   password: rules.password.required(),
 }).prefs({ abortEarly: false });
+
 
 export const forgetPasswordSchema = Joi.object({
   email: rules.email.required(),

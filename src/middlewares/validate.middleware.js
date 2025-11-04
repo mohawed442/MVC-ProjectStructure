@@ -1,12 +1,14 @@
-import Joi from "joi";
+import Joi from "joi" ;
 
-const validate = (schema, property = "body") => {
+export const validate = (schema, property = "body") => {
+
   return (req, res, next) => {
     const data = req[property];
 
     const { error, value } = schema.validate(data, {
-      abortEarly: false,
-      stripUnknown: true,
+      abortEarly: false, 
+      stripUnknown: true 
+
     });
 
     if (error) {
@@ -26,4 +28,4 @@ const validate = (schema, property = "body") => {
   };
 };
 
-export default validate;
+
